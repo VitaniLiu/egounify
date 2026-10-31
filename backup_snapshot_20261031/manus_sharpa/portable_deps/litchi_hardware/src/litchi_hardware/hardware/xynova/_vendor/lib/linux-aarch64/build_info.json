@@ -1,0 +1,18 @@
+{
+"project": "xynova",
+"version": "2.0.0",
+"local_version": "R3",
+"build_type": "Release",
+"git_branch": "release/v2.0.0",
+"git_tag": "",
+"git_commit": "1a073a90c5d644e5c1bc2d433d0f225fe1e24eae",
+"git_hash": "1a073a9",
+"git_dirty": "false",
+"compile_mode": "ALL",
+"header_mode": "ALL",
+"platform": "linux",
+"arch": "aarch64",
+"build_user": "jtao",
+"build_host": "VB01",
+"timestamp": "20260809_164331"
+}

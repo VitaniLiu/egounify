@@ -1,0 +1,13 @@
+{
+  "fake": true,
+  "session_id": "df48da47ea7343428382cc2da9942cdb",
+  "event_count": 1855,
+  "streams": [
+    "left/accepted",
+    "left/state",
+    "right/accepted",
+    "right/state"
+  ],
+  "error": null,
+  "robot_control_commands_sent": 0
+}

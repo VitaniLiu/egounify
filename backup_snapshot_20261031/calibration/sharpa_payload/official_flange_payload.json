@@ -1,0 +1,83 @@
+{
+  "status": "OFFICIAL_FLANGE_MODEL_NOT_APPLIED",
+  "source_commit": "0d19cac602f46456b819e4b6a2c09a74982c9a3e",
+  "source_url": "https://github.com/sharpa-robotics/sharpa-urdf-usd-xml",
+  "installation_user_statement": "Original Sharpa mounting components; no extra adapter plate",
+  "remaining": [
+    "Actual mounting orientation relative to robot SDK flange frame",
+    "Confirm original components match official model revision",
+    "ToolD units and tensor convention"
+  ],
+  "arms": {
+    "arm0": {
+      "serial": "CE50903ECE53",
+      "root_frame": "left_hand_flange",
+      "posture": "all URDF joints zero; not an issued command",
+      "model_sha256": "8ba772078f0f7337b54345a753bad4f09663c3e8e7a42035146cce0e7849baee",
+      "links": 35,
+      "mass_kg": 1.3117649999999998,
+      "com_m": [
+        0.0007956794787948657,
+        -0.008722312798603244,
+        0.09589293891367096
+      ],
+      "inertia_about_com_kg_m2": [
+        [
+          0.0046591890715991765,
+          0.00011553028043936939,
+          -4.268361754226525e-05
+        ],
+        [
+          0.00011553028043936939,
+          0.003735422786123383,
+          -0.0003196556065738528
+        ],
+        [
+          -4.268361754226525e-05,
+          -0.0003196556065738528,
+          0.0014751521196802592
+        ]
+      ],
+      "principal_moments_kg_m2": [
+        0.0014305985953062257,
+        0.0037636061864160927,
+        0.004675559195680501
+      ]
+    },
+    "arm1": {
+      "serial": "CC50933FCC53",
+      "root_frame": "right_hand_flange",
+      "posture": "all URDF joints zero; not an issued command",
+      "model_sha256": "b4ebbc0315279d7116aacad4adcb6722b272bd50ba243fda1cd228324fd6a892",
+      "links": 35,
+      "mass_kg": 1.3097649999999998,
+      "com_m": [
+        0.0007812559081305348,
+        0.008480403149213035,
+        0.08943571781840398
+      ],
+      "inertia_about_com_kg_m2": [
+        [
+          0.004238225199124423,
+          -0.00011025638944329673,
+          -4.370678082850293e-05
+        ],
+        [
+          -0.00011025638944329673,
+          0.00333406786237714,
+          -1.3058982462827756e-05
+        ],
+        [
+          -4.370678082850293e-05,
+          -1.3058982462827756e-05,
+          0.0014540694964955594
+        ]
+      ],
+      "principal_moments_kg_m2": [
+        0.0014532670040931079,
+        0.0033209938526559584,
+        0.004252101701248053
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "state": "PASS",
+  "diagnostic_rejected_by_default": true,
+  "diagnostic_extraction": true,
+  "raw": "/mnt/apex-data/apex_n_sharpa/manus_sharpa/data/resume-sync-validation-1793167779554639669/raw",
+  "hdf5": "/mnt/apex-data/apex_n_sharpa/manus_sharpa/data/resume-sync-validation-1793167779554639669/hands.hdf5"
+}

@@ -1,0 +1,28 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+ros2/install/
+ros2/log/
+
+# Virtual environments
+.venv
+
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# development environment files
+.env
+.env.*
+!.env.example
+
+# development reference files
+reference/
+specs
+
+# agents
+.omo

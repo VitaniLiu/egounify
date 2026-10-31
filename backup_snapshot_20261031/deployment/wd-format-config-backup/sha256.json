@@ -1,0 +1,14 @@
+{
+  "config/._apex.json": "0eefddeb63648951ff2e79cfd90a2bd17a5a71935f5c4232c9f2c9e74859565a",
+  "config/apex.json": "b8dca72c51eec276f2ca6ea82626f635927c599b2eb58a7204d0e189e1e561f9",
+  "config/._lerobot.json": "0eefddeb63648951ff2e79cfd90a2bd17a5a71935f5c4232c9f2c9e74859565a",
+  "config/lerobot.json": "87df6a9a402ba61be75794c0e532158bfc59a962a8d6b9d0de8056f9cd772b6f",
+  "references/._training_schema.json": "0eefddeb63648951ff2e79cfd90a2bd17a5a71935f5c4232c9f2c9e74859565a",
+  "references/training_schema.json": "11f489639433cd9a4aed45118b115f7bd62590c8be5a371d5b01ba3b9b4c07ee",
+  "references/._info.json": "0eefddeb63648951ff2e79cfd90a2bd17a5a71935f5c4232c9f2c9e74859565a",
+  "references/info.json": "0edcca8a7f4493f770aa1a5f74a618d4547bc5bc08396ce5ebcf1658ff92b7d8",
+  "references/._hdf5_schema.json": "0eefddeb63648951ff2e79cfd90a2bd17a5a71935f5c4232c9f2c9e74859565a",
+  "references/hdf5_schema.json": "a584b579b90b1ca0e7327eac8c2d532c15e4b9c1dc55e6648cd947cbc3ce6eba",
+  "references/._schema78.json": "0eefddeb63648951ff2e79cfd90a2bd17a5a71935f5c4232c9f2c9e74859565a",
+  "references/schema78.json": "e4ea00fdbf4aa29405f7d8074059379fb90a94ba11a9733a71d74ba3f6b00bd2"
+}

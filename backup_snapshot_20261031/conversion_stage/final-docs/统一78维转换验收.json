@@ -1,0 +1,189 @@
+{
+  "pipeline": {
+    "state": "PASS",
+    "task": "unified78_validation_1793171077641728617",
+    "episode_index": 42,
+    "frames": 30,
+    "dimensions": 78,
+    "valid_dimensions": 76,
+    "raw": "/mnt/apex-data/apex_n_sharpa/data/raw_data/apex_data/unified78_validation_1793171077641728617/episode_00000042",
+    "hdf5": "/mnt/apex-data/apex_n_sharpa/data/hdf5/unified78_validation_1793171077641728617/hdf5_00000042.hdf5",
+    "lerobot": "/mnt/apex-data/apex_n_sharpa/data/lerobot/unified78_validation_1793171077641728617/episode_00000042",
+    "diagnostic": true,
+    "hardware_initialized": false,
+    "checks": [
+      "unified entrypoint end to end",
+      "native ROS MCAP import",
+      "same episode 42 at every stage",
+      "body5 measured/target values",
+      "left/right hand feedback vs accepted action",
+      "gripper-only mask",
+      "20Hz integer grid",
+      "causal action alignment",
+      "full-rate replay stream equality",
+      "idempotent rerun",
+      "diagnostic default rejection"
+    ]
+  },
+  "reader": {
+    "state": "PASS",
+    "lerobot_package": "0.3.3",
+    "format": "v2.1",
+    "episode_index": 42,
+    "frames": 30,
+    "checks": [
+      "upstream image/state/action read",
+      "temporal padding at both boundaries",
+      "original episode ID retained",
+      "spawn DataLoader worker",
+      "diagnostic rejected by default"
+    ]
+  },
+  "installed_entry": {
+    "state": "PASS",
+    "entrypoint": "/home/descfly/apex_n_sharpa/convert_unified",
+    "task": "unified78_validation_1793171077641728617",
+    "clock_observation": {
+      "robot_minus_av_estimate_ns": -35450835182,
+      "round_trip_ns": 214400827,
+      "uncertainty_bound_ns": 107200413,
+      "clock_changed": false
+    }
+  },
+  "host_deployment": {
+    "state": "DEPLOYED",
+    "backup_root": "/home/descfly/apex_n_sharpa/deployment/unified78-1793171215704341121",
+    "files": [
+      {
+        "source": "src/read_raw_data/main.py",
+        "target": "/home/descfly/apex_n_sharpa/src/read_raw_data/main.py",
+        "before": "7fbb418c7678dc8fd1aaeb05774e62649d3709882fa6155a74e11b57516c70c9",
+        "after": "eabcc82cdff293d4023f27aa733e08d991cda5163f11462b52432b62a6d0d0de",
+        "mode": 420,
+        "backup": "/home/descfly/apex_n_sharpa/deployment/unified78-1793171215704341121/00.before"
+      },
+      {
+        "source": "src/apex2hdf5/main.py",
+        "target": "/home/descfly/apex_n_sharpa/src/apex2hdf5/main.py",
+        "before": "bbbe4d2d6bb1c992afc9d5bbfa18347359c4439242ed061083400eeeabf0811d",
+        "after": "f43b8725f6e3026a8ae2d1106aa121c1a81894c66fe6460e5d17957cfb17ec61",
+        "mode": 420,
+        "backup": "/home/descfly/apex_n_sharpa/deployment/unified78-1793171215704341121/01.before"
+      },
+      {
+        "source": "src/hdf52lerobot/main.py",
+        "target": "/home/descfly/apex_n_sharpa/src/hdf52lerobot/main.py",
+        "before": "630dc6e05446ad1a662edb3a975ad664d2e9ea48b60e4f18b947c0223c4e6c72",
+        "after": "dbf546043e718718190dd4b5c8b1b311b5721fa12ddc9f4bb2a2fbc86ed8ca10",
+        "mode": 420,
+        "backup": "/home/descfly/apex_n_sharpa/deployment/unified78-1793171215704341121/02.before"
+      },
+      {
+        "source": "src/unified_capture.py",
+        "target": "/home/descfly/apex_n_sharpa/src/unified_capture.py",
+        "before": null,
+        "after": "17e92add518ba7cba9eefd296716a245ef187523899038d5dadd1610361ff657",
+        "mode": 420,
+        "backup": null
+      },
+      {
+        "source": "src/import_unified.py",
+        "target": "/home/descfly/apex_n_sharpa/src/import_unified.py",
+        "before": null,
+        "after": "cc9f117fe9253d08bd4256f391a2bb2e6ea2f3e216e065894b2e3dea0e8eac0c",
+        "mode": 420,
+        "backup": null
+      },
+      {
+        "source": "src/unified_pipeline/main.py",
+        "target": "/home/descfly/apex_n_sharpa/src/unified_pipeline/main.py",
+        "before": null,
+        "after": "a7e141fe78506b3adfdb671f429341d68878776d90533d8695b07265c01bf05e",
+        "mode": 420,
+        "backup": null
+      },
+      {
+        "source": "src/unified_lerobot.py",
+        "target": "/home/descfly/apex_n_sharpa/src/unified_lerobot.py",
+        "before": null,
+        "after": "8e89727b60527570ef6a09debb04476fb6155e1314dc568975b625048ee5ac8a",
+        "mode": 420,
+        "backup": null
+      },
+      {
+        "source": "src/original_episode_index.py",
+        "target": "/home/descfly/apex_n_sharpa/src/original_episode_index.py",
+        "before": null,
+        "after": "aa4d5e25387e3e7f8b101bd4b4d5760cac94ca10204e12d61014449bbc3d6fba",
+        "mode": 420,
+        "backup": null
+      },
+      {
+        "source": "convert_unified",
+        "target": "/home/descfly/apex_n_sharpa/convert_unified",
+        "before": null,
+        "after": "ac699e6889251eb6446cd7a805579dd994c3649ba9d958ab883eb5149763d709",
+        "mode": 493,
+        "backup": null
+      },
+      {
+        "source": "tests/test_unified_capture.py",
+        "target": "/home/descfly/apex_n_sharpa/tests/test_unified_capture.py",
+        "before": null,
+        "after": "b4f203abda43d26c846af5d0dd89a2d335c0c4c35c3d18ad06000f8a7ce17503",
+        "mode": 420,
+        "backup": null
+      },
+      {
+        "source": "recording/contract.py",
+        "target": "/home/descfly/apex_n_sharpa/recording/contract.py",
+        "before": null,
+        "after": "de2337df158b263a76a0c79eca9096dc0ba5442a57fb7cd5a070ba2e555f367d",
+        "mode": 420,
+        "backup": null
+      },
+      {
+        "source": "config/apex_unified78.json",
+        "target": "/mnt/apex-data/apex_n_sharpa/data/config/apex_unified78.json",
+        "before": null,
+        "after": "5bbff129d7f3f441ba7f815da366b1b70750e5c8a4fbfb6852f1d46ec4840517",
+        "mode": 420,
+        "backup": null
+      },
+      {
+        "source": "config/lerobot_unified78.json",
+        "target": "/mnt/apex-data/apex_n_sharpa/data/config/lerobot_unified78.json",
+        "before": null,
+        "after": "ef10c8b8ed58418beaa137a0b5f4658b502d4c287a4852766dcc69163aa55abc",
+        "mode": 420,
+        "backup": null
+      }
+    ],
+    "services_restarted": false
+  },
+  "robot_deployment": {
+    "state": "DEPLOYED",
+    "target": "/home/user/apex_record_sync/contract.py",
+    "before": "e0e47ea126b420a9be1a67b276cc2844f275210272fbe9eb5203043b4809acf4",
+    "after": "de2337df158b263a76a0c79eca9096dc0ba5442a57fb7cd5a070ba2e555f367d",
+    "backup": "/home/user/apex_record_sync/backups/unified78-1793171189808653338/contract.py",
+    "registry": "/home/user/apex_record_sync/state/episode_registry.json",
+    "next_index": 3,
+    "services_restarted": false,
+    "effective": "next normal Teleop launch"
+  },
+  "state": "DEPLOYED_AND_DIAGNOSTIC_VALIDATED",
+  "date": "2026-10-28",
+  "tests": {
+    "passed": 173,
+    "scope": "stage regression + unified contract + recording unit tests",
+    "installed_robot_contract_tests_passed": 7
+  },
+  "limits": [
+    "No hardware initialized or moved",
+    "No live combined body+hands+camera recording accepted yet",
+    "Common robot receive clock; physical sampling simultaneity unverified",
+    "Replay data retained; unified physical executor not implemented",
+    "Optional LeRobot reader verified against package 0.3.3 / format v2.1"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "fps": 20,
+  "clock_domain": "robot_receive",
+  "streams": {
+    "observations/left": {
+      "topic": "/tj/info/eef_left",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "state"
+    },
+    "actions/left": {
+      "topic": "/tj/control/target_poseL",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action"
+    },
+    "observations/right": {
+      "topic": "/tj/info/eef_right",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "state"
+    },
+    "actions/right": {
+      "topic": "/tj/control/target_poseR",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action"
+    },
+    "actions/active_camera": {
+      "topic": "/tj/control/vr_body",
+      "field": "head_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "required": false,
+      "source_role": "action"
+    },
+    "observations/chassis": {
+      "topic": "/recording/chassis/state",
+      "kind": "vector",
+      "fields": [
+        "speed.linear.x",
+        "speed.linear.y",
+        "speed.angular.z"
+      ],
+      "unit": "m/s,m/s,rad/s",
+      "clock": "log",
+      "source_role": "state"
+    },
+    "actions/chassis": {
+      "topic": "/recording/gamepad/command",
+      "kind": "vector",
+      "fields": [
+        "twist.linear.x",
+        "twist.linear.y",
+        "twist.angular.z"
+      ],
+      "unit": "m/s,m/s,rad/s",
+      "clock": "log",
+      "source_role": "action"
+    },
+    "images/quad": {
+      "topic": "/recorder/quad_tile/compressed_undistorted",
+      "field": "data",
+      "kind": "image",
+      "clock": "log"
+    }
+  }
+}

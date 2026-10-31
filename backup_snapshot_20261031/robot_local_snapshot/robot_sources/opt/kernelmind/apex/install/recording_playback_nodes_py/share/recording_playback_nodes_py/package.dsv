@@ -1,0 +1,6 @@
+source;share/recording_playback_nodes_py/hook/pythonpath.ps1
+source;share/recording_playback_nodes_py/hook/pythonpath.dsv
+source;share/recording_playback_nodes_py/hook/pythonpath.sh
+source;share/recording_playback_nodes_py/hook/ament_prefix_path.ps1
+source;share/recording_playback_nodes_py/hook/ament_prefix_path.dsv
+source;share/recording_playback_nodes_py/hook/ament_prefix_path.sh

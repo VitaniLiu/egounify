@@ -1,0 +1,65 @@
+# Xynova Dexterous Hand (SDK 2.x) — default ROS 2 configuration.
+#
+# YAML shape:
+#   params:                       # any parameter declared by the node
+#     master.name: "xynova_master"
+#     ...
+#   joint_calibration:            # per-joint linear map: sdk = gain * ros + offset
+#     FF1: {gain: 1.0, offset: 0.0}
+#
+# Only the fields you want to override need to appear. Anything missing falls
+# back to the node's declared defaults (which mirror the vendor's own examples).
+
+params:
+  master.name: "xynova_master"
+  master.period_us: 1000
+  master.cpu_index: -1
+
+  comm.sub_type: "ChuangXinCAN"
+  comm.logger_name: "xynova_hand"
+
+  can.iface: "0.0"
+  can.manager_can: false
+  can.bitrate: 1000000
+  can.dbitrate: 5000000
+  can.sample_point: 0.8
+  can.dsample_point: 0.8
+
+  slave.type: "DexterousHandSlave"
+  slave.id: 4294967295
+  slave.logger_name: "xynova_hand"
+
+  device.type: "DexterousHandDevice"
+  device.name: "dexterous_hand"
+
+  # Optional tactile feedback is disabled unless explicitly enabled here or by
+  # a ROS parameter override.
+  # enable_tactile: false
+
+# ROS, core, and SDK Angle positions are radians. The HAL applies the optional
+# per-joint map sdk = gain * radians + offset. Override
+# these values with the real hand calibration; 1.0/0.0 is identity.
+joint_calibration:
+  FF1: {gain: 1.0, offset: 0.0}
+  FF2: {gain: 1.0, offset: 0.0}
+  FF3: {gain: 1.0, offset: 0.0}
+  FF4: {gain: 1.0, offset: 0.0}
+  MF1: {gain: 1.0, offset: 0.0}
+  MF2: {gain: 1.0, offset: 0.0}
+  MF3: {gain: 1.0, offset: 0.0}
+  MF4: {gain: 1.0, offset: 0.0}
+  RF1: {gain: 1.0, offset: 0.0}
+  RF2: {gain: 1.0, offset: 0.0}
+  RF3: {gain: 1.0, offset: 0.0}
+  RF4: {gain: 1.0, offset: 0.0}
+  LF1: {gain: 1.0, offset: 0.0}
+  LF2: {gain: 1.0, offset: 0.0}
+  LF3: {gain: 1.0, offset: 0.0}
+  LF4: {gain: 1.0, offset: 0.0}
+  LF5: {gain: 1.0, offset: 0.0}
+  TH1: {gain: 1.0, offset: 0.0}
+  TH2: {gain: 1.0, offset: 0.0}
+  TH3: {gain: 1.0, offset: 0.0}
+  TH4: {gain: 1.0, offset: 0.0}
+  WR1: {gain: 1.0, offset: 0.0}
+  WR2: {gain: 1.0, offset: 0.0}

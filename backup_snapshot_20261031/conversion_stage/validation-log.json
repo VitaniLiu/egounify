@@ -1,0 +1,55 @@
+[
+  {
+    "step": "read_raw_data",
+    "args": [
+      "--unified",
+      "--task",
+      "unified78_validation_1793171077641728617",
+      "--episode",
+      "42",
+      "--apex-source",
+      "/home/user/apex_record_sync/unified78-stage/validation/1793170233847348173/raw"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/home/descfly/apex_n_sharpa/.unified78-stage/src/read_raw_data/main.py\", line 378, in <module>\n    main()\n  File \"/home/descfly/apex_n_sharpa/.unified78-stage/src/read_raw_data/main.py\", line 371, in main\n    copy_unified(source,DATA/'raw_data/apex_data'/a.task,save,safe,a.allow_diagnostic,a.episode)\n  File \"/home/descfly/apex_n_sharpa/.unified78-stage/src/import_unified.py\", line 24, in copy_unified\n    if m.get('diagnostic') and not allow_diagnostic:raise ValueError('Diagnostic capture rejected for production')\n                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Diagnostic capture rejected for production\n"
+  },
+  {
+    "step": "unified_pipeline",
+    "args": [
+      "--task",
+      "unified78_validation_1793171077641728617",
+      "--episode",
+      "42",
+      "--apex-source",
+      "/home/user/apex_record_sync/unified78-stage/validation/1793170233847348173/raw",
+      "--allow-diagnostic",
+      "--apex-config",
+      "/mnt/apex-data/apex_n_sharpa/data/config/unified_validation/unified78_validation_1793171077641728617/apex.json",
+      "--lerobot-config",
+      "/mnt/apex-data/apex_n_sharpa/data/config/unified_validation/unified78_validation_1793171077641728617/lerobot.json"
+    ],
+    "returncode": 0,
+    "stdout": "Imported episode_00000042\nSharpa\u6e90\u8def\u5f84\u672a\u8bbe\u7f6e\uff0c\u4fdd\u7559\u7a7a\u76ee\u5f55\n\u5b8c\u6210 hdf5_00000042.hdf5\n\u5b8c\u6210 HDF5+Sharpa 00000042\n{\"task\": \"unified78_validation_1793171077641728617\", \"episode_index\": 42, \"profile\": \"tianji_unified78\", \"diagnostic\": true, \"raw_root\": \"/mnt/apex-data/apex_n_sharpa/data/raw_data/apex_data/unified78_validation_1793171077641728617\", \"hdf5_root\": \"/mnt/apex-data/apex_n_sharpa/data/hdf5/unified78_validation_1793171077641728617\", \"lerobot_root\": \"/mnt/apex-data/apex_n_sharpa/data/lerobot/unified78_validation_1793171077641728617\"}\n",
+    "stderr": "\napex2hdf5:   0%|          | 0/1 [00:00<?, ?episode/s]\n\nepisode_00000042: 0msg [00:00, ?msg/s]\u001b[A\nepisode_00000042: 1074msg [00:00, 17381.59msg/s]\n\n                                                     \n\napex2hdf5:   0%|          | 0/1 [00:00<?, ?episode/s]\napex2hdf5: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1/1 [00:00<00:00,  7.99episode/s]\napex2hdf5: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1/1 [00:00<00:00,  7.99episode/s]\n\nhdf52lerobot + clean:   0%|          | 0/1 [00:00<?, ?episode/s]\n                                                                \n\nhdf52lerobot + clean:   0%|          | 0/1 [00:00<?, ?episode/s]\nhdf52lerobot + clean: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1/1 [00:00<00:00, 12.62episode/s]\n"
+  },
+  {
+    "step": "unified_pipeline",
+    "args": [
+      "--task",
+      "unified78_validation_1793171077641728617",
+      "--episode",
+      "42",
+      "--apex-source",
+      "/home/user/apex_record_sync/unified78-stage/validation/1793170233847348173/raw",
+      "--allow-diagnostic",
+      "--apex-config",
+      "/mnt/apex-data/apex_n_sharpa/data/config/unified_validation/unified78_validation_1793171077641728617/apex.json",
+      "--lerobot-config",
+      "/mnt/apex-data/apex_n_sharpa/data/config/unified_validation/unified78_validation_1793171077641728617/lerobot.json"
+    ],
+    "returncode": 0,
+    "stdout": "Sharpa\u6e90\u8def\u5f84\u672a\u8bbe\u7f6e\uff0c\u4fdd\u7559\u7a7a\u76ee\u5f55\n{\"task\": \"unified78_validation_1793171077641728617\", \"episode_index\": 42, \"profile\": \"tianji_unified78\", \"diagnostic\": true, \"raw_root\": \"/mnt/apex-data/apex_n_sharpa/data/raw_data/apex_data/unified78_validation_1793171077641728617\", \"hdf5_root\": \"/mnt/apex-data/apex_n_sharpa/data/hdf5/unified78_validation_1793171077641728617\", \"lerobot_root\": \"/mnt/apex-data/apex_n_sharpa/data/lerobot/unified78_validation_1793171077641728617\"}\n",
+    "stderr": "\napex2hdf5:   0%|          | 0/1 [00:00<?, ?episode/s]\napex2hdf5: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1/1 [00:00<00:00, 139.15episode/s]\n\nhdf52lerobot + clean:   0%|          | 0/1 [00:00<?, ?episode/s]\nhdf52lerobot + clean: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1/1 [00:00<00:00, 137.03episode/s]\n"
+  }
+]

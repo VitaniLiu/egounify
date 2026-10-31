@@ -1,0 +1,1 @@
+{"id":"50f20c5b-8984-11f1-8001-003059389685","name":"Sharpa","inertial":{"mass":1.4646,"centerOfMass":{"x":0.016,"y":0.008,"z":0.092},"inertia":{"x11":0.001,"x12":0,"x13":0,"x22":0.001,"x23":0,"x33":0.001}},"tcp":{"rotation":{"pitch":0,"roll":0,"yaw":0},"translation":{"x":0,"y":0,"z":0}},"deviceId":"ee-no-gripper"}

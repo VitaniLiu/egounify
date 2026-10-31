@@ -1,0 +1,84 @@
+{
+  "status": "MODEL_ONLY_NOT_FOR_HARDWARE",
+  "controller_parameters_written": false,
+  "missing": [
+    "flange-to-hand-root transform",
+    "adapter inertial properties",
+    "model revision confirmation",
+    "controller ToolD unit/order verification"
+  ],
+  "arms": {
+    "arm0": {
+      "side": "left",
+      "serial": "CE50903ECE53",
+      "root_frame": "left_hand_C_MC",
+      "posture": "all URDF joints zero; not an issued command",
+      "model_sha256": "4cf9fcf07a4545b538995c6c17aaf1a5768e61541b11b1cc385026da3626bad8",
+      "links": 33,
+      "mass_kg": 1.2452649999999998,
+      "com_m": [
+        0.000879101630176185,
+        -0.009196769079882422,
+        0.07083900496206956
+      ],
+      "inertia_about_com_kg_m2": [
+        [
+          0.004147948528327542,
+          0.00011453128358932445,
+          -3.461649651248136e-05
+        ],
+        [
+          0.00011453128358932445,
+          0.003231925840251461,
+          -0.0003714482583245423
+        ],
+        [
+          -3.461649651248136e-05,
+          -0.0003714482583245423,
+          0.0014425612482384196
+        ]
+      ],
+      "principal_moments_kg_m2": [
+        0.0013684692692920927,
+        0.0032894512662578882,
+        0.004164515081267441
+      ]
+    },
+    "arm1": {
+      "side": "right",
+      "serial": "CC50933FCC53",
+      "root_frame": "right_hand_C_MC",
+      "posture": "all URDF joints zero; not an issued command",
+      "model_sha256": "7a9ab7f824482d23765b2da40b7e96fc605e7e70eda4615a5ca51fea88afb845",
+      "links": 33,
+      "mass_kg": 1.2432649999999998,
+      "com_m": [
+        0.0008640407672640908,
+        0.008925325840210262,
+        0.06404355101158793
+      ],
+      "inertia_about_com_kg_m2": [
+        [
+          0.0038000318378426027,
+          -0.00010938121966075038,
+          -3.642319288480149e-05
+        ],
+        [
+          -0.00010938121966075038,
+          0.002902939044381161,
+          3.171898797036762e-05
+        ],
+        [
+          -3.642319288480149e-05,
+          3.171898797036762e-05,
+          0.0014221639361517051
+        ]
+      ],
+      "principal_moments_kg_m2": [
+        0.001420995113276284,
+        0.0028902963098978414,
+        0.0038138433952013442
+      ]
+    }
+  }
+}

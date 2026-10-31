@@ -1,0 +1,29 @@
+{
+  "host": "av-pipeline",
+  "project": "/home/descfly/apex_n_sharpa",
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "executable": "/home/descfly/apex_n_sharpa/.venv/bin/python",
+  "venv": "/home/descfly/apex_n_sharpa/.venv",
+  "system_python_prefix": "/usr",
+  "isolated": true,
+  "tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "31",
+    "time": "8.276",
+    "timestamp": "2026-10-24T11:30:24.092773+08:00",
+    "hostname": "av-pipeline"
+  },
+  "test_data_remaining": {
+    "raw_data": [],
+    "hdf5": [],
+    "lerobot": [],
+    "test_sources": []
+  },
+  "free_disk_bytes": 5126668288,
+  "project_file_bytes": 485765185,
+  "robot_connected": false,
+  "real_data_processed": false
+}

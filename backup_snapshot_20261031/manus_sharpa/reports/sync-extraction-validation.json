@@ -1,0 +1,7 @@
+{
+  "state": "PASS",
+  "raw": "/mnt/apex-data/apex_n_sharpa/manus_sharpa/data/sync-validation-1793164423371525431/isolated_sync",
+  "hdf5": "/mnt/apex-data/apex_n_sharpa/manus_sharpa/data/sync-validation-1793164423371525431/hands.hdf5",
+  "production_rejected_diagnostic": true,
+  "embedded_context_only": true
+}

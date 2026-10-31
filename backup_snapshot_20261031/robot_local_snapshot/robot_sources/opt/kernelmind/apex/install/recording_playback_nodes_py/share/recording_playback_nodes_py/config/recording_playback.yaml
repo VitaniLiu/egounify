@@ -1,0 +1,41 @@
+data_bag_recorder:
+  ros__parameters:
+    record_bags_storage_dir: "/media/marvin/BAG_STORAGE/recorded_bags"
+    storage_id: "mcap"
+    bag_data_dir_name: "data"
+    video_dir_name: "video"
+    write_queue_warn_threshold: 500
+    subscription_qos_depth: 1000
+    allowed_topics:
+      - "/joint_states"
+      - "/info/gripper_feedback_L"
+      - "/info/gripper_feedback_R"
+      - "/info/eef_left"
+      - "/info/eef_right"
+      - "/move/ManualMoveCmd"
+      - "/move/State"
+      - "/control/joint_cmd_A"
+      - "/control/joint_cmd_B"
+      - "/hand_left/joint_commands"
+      - "/hand_left/joint_states"
+      - "/hand_right/joint_commands"
+      - "/hand_right/joint_states"
+
+playback_node:
+  ros__parameters:
+    storage_id: "mcap"
+    playback_rate_default: 1.0
+    playback_rate_min: 0.1
+    playback_rate_max: 5.0
+    initial_move_wait_sec: 5.0
+    topic_whitelist:
+      - "/joint_states"
+      - "/info/gripper_feedback_L"
+      - "/info/gripper_feedback_R"
+      - "/hand_left/joint_commands"
+      - "/hand_right/joint_commands"
+
+robot_mode_service:
+  ros__parameters:
+    bag_directory: "/media/marvin/BAG_STORAGE/recorded_bags"
+    bag_storage_id: "mcap"

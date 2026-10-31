@@ -1,0 +1,379 @@
+{
+  "fps": 20,
+  "clock_domain": "robot_receive",
+  "streams": {
+    "observations/left": {
+      "topic": "/tj/info/eef_left",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "state"
+    },
+    "actions/left": {
+      "topic": "/tj/control/target_poseL",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action"
+    },
+    "observations/right": {
+      "topic": "/tj/info/eef_right",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "state"
+    },
+    "actions/right": {
+      "topic": "/tj/control/target_poseR",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action"
+    },
+    "actions/active_camera": {
+      "topic": "/tj/control/vr_body",
+      "field": "head_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "required": true,
+      "source_role": "action"
+    },
+    "observations/chassis": {
+      "topic": "/recording/chassis/state",
+      "kind": "vector",
+      "fields": [
+        "speed.linear.x",
+        "speed.linear.y",
+        "speed.angular.z"
+      ],
+      "unit": "m/s,m/s,rad/s",
+      "clock": "log",
+      "source_role": "state"
+    },
+    "actions/chassis": {
+      "topic": "/recording/chassis/manual_move_cmd",
+      "kind": "vector",
+      "fields": [
+        "twist.linear.x",
+        "twist.linear.y",
+        "twist.angular.z"
+      ],
+      "unit": "m/s,m/s,rad/s",
+      "clock": "log",
+      "source_role": "action"
+    },
+    "images/quad": {
+      "topic": "/recorder/quad_tile/compressed_undistorted",
+      "field": "data",
+      "kind": "image",
+      "clock": "log"
+    },
+    "observations/active_camera": {
+      "topic": "/tj/joint_states",
+      "kind": "pose",
+      "frame": "base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "state",
+      "fk": {
+        "model": "/mnt/apex-data/apex_n_sharpa/data/raw_data/robot_configuration/robot_import_20261024/opt/kernelmind/apex/install/marvin_description/share/marvin_description/mjcf/Gento_Sky/Gento_Sky.xml",
+        "sha256": "c34f0ad10ee6f7635e4c4120da38cefdd2ca22f5c0cce0f878b8b891c8996b58",
+        "root": "base_link",
+        "target": "eyes_link"
+      }
+    },
+    "images/active_camera": {
+      "topic": "/recorder/quad_tile/compressed_undistorted",
+      "field": "data",
+      "kind": "image",
+      "clock": "log",
+      "source_role": "image"
+    },
+    "images/left": {
+      "topic": "/recorder/quad_tile/compressed_undistorted",
+      "field": "data",
+      "kind": "image",
+      "clock": "log",
+      "source_role": "image"
+    },
+    "images/right": {
+      "topic": "/recorder/quad_tile/compressed_undistorted",
+      "field": "data",
+      "kind": "image",
+      "clock": "log",
+      "source_role": "image"
+    },
+    "observations/body_joints": {
+      "topic": "/tj/joint_states",
+      "field": "position",
+      "kind": "vector",
+      "joint_names": [
+        "waist_joint_1",
+        "waist_joint_2",
+        "waist_joint_3",
+        "Head_J1_Joint",
+        "Head_J2_Joint"
+      ],
+      "unit": "m,rad,rad,rad,rad",
+      "clock": "log",
+      "source_role": "state",
+      "source_stage": "measured_feedback"
+    },
+    "actions/body_controller": {
+      "topic": "/tj/control/joint_cmd_body",
+      "field": "positions",
+      "kind": "vector",
+      "indices": [
+        0,
+        1,
+        2
+      ],
+      "unit": "m,rad,rad",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "controller_output"
+    },
+    "actions/head_controller": {
+      "topic": "/tj/control/joint_cmd_head",
+      "field": "positions",
+      "kind": "vector",
+      "indices": [
+        0,
+        1
+      ],
+      "unit": "rad,rad",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "controller_output"
+    },
+    "actions/ik_left": {
+      "topic": "/tj/control/ik_request",
+      "field": "left_hand_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "actions/ik_right": {
+      "topic": "/tj/control/ik_request",
+      "field": "right_hand_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "actions/ik_available": {
+      "topic": "/tj/control/ik_request",
+      "field": "available",
+      "kind": "vector",
+      "frame": "discrete_flags",
+      "unit": "bool",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input"
+    },
+    "actions/ik_left_elbow": {
+      "topic": "/tj/control/ik_request",
+      "field": "left_elbow_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "actions/ik_right_elbow": {
+      "topic": "/tj/control/ik_request",
+      "field": "right_elbow_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "actions/ik_torso": {
+      "topic": "/tj/control/ik_request",
+      "field": "torso_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "actions/ik_head": {
+      "topic": "/tj/control/ik_request",
+      "field": "head_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "actions/ik_pelvis": {
+      "topic": "/tj/control/ik_request",
+      "field": "pelvis_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "actions/ik_left_foot": {
+      "topic": "/tj/control/ik_request",
+      "field": "left_foot_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "actions/ik_right_foot": {
+      "topic": "/tj/control/ik_request",
+      "field": "right_foot_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "actions/ik_left_knee": {
+      "topic": "/tj/control/ik_request",
+      "field": "left_knee_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "actions/ik_right_knee": {
+      "topic": "/tj/control/ik_request",
+      "field": "right_knee_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "actions/ik_joint_positions": {
+      "topic": "/tj/control/ik_request",
+      "field": "joint_state.position",
+      "kind": "vector",
+      "frame": "native_joint_coordinates",
+      "unit": "m,rad",
+      "clock": "log",
+      "source_role": "action",
+      "source_stage": "ik_input",
+      "complete_ik_request": true
+    },
+    "observations/full_joints": {
+      "topic": "/tj/joint_states",
+      "field": "position",
+      "kind": "vector",
+      "joint_names": [
+        "Joint1_L",
+        "Joint2_L",
+        "Joint3_L",
+        "Joint4_L",
+        "Joint5_L",
+        "Joint6_L",
+        "Joint7_L",
+        "Joint1_R",
+        "Joint2_R",
+        "Joint3_R",
+        "Joint4_R",
+        "Joint5_R",
+        "Joint6_R",
+        "Joint7_R",
+        "waist_joint_1",
+        "waist_joint_2",
+        "waist_joint_3",
+        "Head_J1_Joint",
+        "Head_J2_Joint"
+      ],
+      "unit": "m,rad",
+      "clock": "log",
+      "source_role": "state"
+    }
+  },
+  "camera_layout": {
+    "confirmed_by": "user",
+    "quadrants": {
+      "I_top_right": "head_right",
+      "II_top_left": "head_left",
+      "III_bottom_left": "wrist_left",
+      "IV_bottom_right": "wrist_right"
+    },
+    "head_color": "head_right",
+    "mosaic_size": [
+      1920,
+      1080
+    ]
+  },
+  "frame_transforms": {
+    "tracking_base_link": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "profile": "tianji_unified78",
+  "hand_serials": {
+    "left": "CE50903ECE53",
+    "right": "CC50933FCC53"
+  },
+  "allow_diagnostic": true
+}

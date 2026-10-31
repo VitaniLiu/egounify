@@ -1,0 +1,7 @@
+{
+  "fake": true,
+  "source_suspended": true,
+  "exit_code": 1,
+  "native_watchdog_stop": true,
+  "hardware_initialized": false
+}

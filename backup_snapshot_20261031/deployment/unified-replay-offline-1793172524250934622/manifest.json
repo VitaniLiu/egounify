@@ -1,0 +1,65 @@
+{
+  "state": "DEPLOYED",
+  "backup_root": "/home/descfly/apex_n_sharpa/deployment/unified-replay-offline-1793172524250934622",
+  "files": [
+    {
+      "source": "src/unified_replay/isolation.py",
+      "sha256": "bb6b42d6e3aa8573c4115a4e8977f5a4042cb8dd091515f800ae69163afb68c2",
+      "before": null,
+      "mode": 420,
+      "target": "/home/descfly/apex_n_sharpa/src/unified_replay/isolation.py",
+      "rollback": "Remove this newly added file; preserve datasets and reports"
+    },
+    {
+      "source": "src/unified_replay/__init__.py",
+      "sha256": "c7d7eafafbd42f7923a39d18f2b587a520cb887317614a3cbc707a671182d686",
+      "before": null,
+      "mode": 420,
+      "target": "/home/descfly/apex_n_sharpa/src/unified_replay/__init__.py",
+      "rollback": "Remove this newly added file; preserve datasets and reports"
+    },
+    {
+      "source": "src/unified_replay/simulator.py",
+      "sha256": "2437d95590af8c43bfe3180dd228b17703e900fb2b270dc4960dfc1fcfd2fda3",
+      "before": null,
+      "mode": 420,
+      "target": "/home/descfly/apex_n_sharpa/src/unified_replay/simulator.py",
+      "rollback": "Remove this newly added file; preserve datasets and reports"
+    },
+    {
+      "source": "src/unified_replay/main.py",
+      "sha256": "019b3a490c47b5a5c8c4a7b8ee0f6bf96c83daf63877c25b158519c0ebe4de6f",
+      "before": null,
+      "mode": 420,
+      "target": "/home/descfly/apex_n_sharpa/src/unified_replay/main.py",
+      "rollback": "Remove this newly added file; preserve datasets and reports"
+    },
+    {
+      "source": "src/unified_replay/contract.py",
+      "sha256": "ddc4278641bef77ef23ca00b1682a4ee2c0f09eeb74fc0fdc63577a27aef7d00",
+      "before": null,
+      "mode": 420,
+      "target": "/home/descfly/apex_n_sharpa/src/unified_replay/contract.py",
+      "rollback": "Remove this newly added file; preserve datasets and reports"
+    },
+    {
+      "source": "replay_unified",
+      "sha256": "fb5935e1ceccec8f13412a503f670dc4f34363882bc07f392a7e2561c10c7bf5",
+      "before": null,
+      "mode": 493,
+      "target": "/home/descfly/apex_n_sharpa/replay_unified",
+      "rollback": "Remove this newly added file; preserve datasets and reports"
+    },
+    {
+      "source": "tests/test_unified_replay.py",
+      "sha256": "58b8658b7fe1eb5116270f06028275eb526924dbde5acd705c21ee44adb058e5",
+      "before": null,
+      "mode": 420,
+      "target": "/home/descfly/apex_n_sharpa/tests/test_unified_replay.py",
+      "rollback": "Remove this newly added file; preserve datasets and reports"
+    }
+  ],
+  "services_restarted": false,
+  "robot_files_modified": false,
+  "hardware_execution_supported": false
+}

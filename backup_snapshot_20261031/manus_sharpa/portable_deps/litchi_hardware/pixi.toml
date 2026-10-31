@@ -1,0 +1,133 @@
+[workspace]
+authors = ["boilcy <0x6c6379@gmail.com>"]
+channels = ["https://prefix.dev/conda-forge"]
+name = "litchi_hardware"
+platforms = [{ platform = "linux-64", glibc = "2.34" }]
+version = "0.1.6"
+
+[pypi-options]
+index-url = "https://mirrors.cernet.edu.cn/pypi/web/simple"
+extra-index-urls = ["https://pypi.org/simple"]
+
+# ── Base: pure Python HAL, zero ROS. Python is pinned to a version that
+#    co-solves with robostack-humble (see the ros2 environment below), so the
+#    default env and the ROS env share one interpreter and one solve. ──
+[dependencies]
+python = ">=3.11,<3.14"
+# Build tools
+compilers = "*"
+cmake = "*"
+pkg-config = "*"
+make = "*"
+ninja = "*"
+
+[pypi-dependencies]
+litchi-hardware = { path = ".", editable = true }
+
+[feature.dev.dependencies]
+pytest = ">=8.0, <9"
+
+[feature.dev.pypi-dependencies]
+build = ">=1.2"
+hatchling = ">=1.27"
+pre-commit = ">=4, <5"
+ruff = ">=0.15.9, <0.16"
+
+# ── Vendor backends: each device family opt-in via its own feature, mirroring
+#    src/litchi_hardware/hardware/<vendor>/. ──
+[feature.manus.pypi-dependencies]
+protobuf = ">=4.21"
+pyzmq = ">=25"
+
+[feature.manus.dependencies]
+cppzmq = "*"
+libudev1 = "*"
+libusb = "*"
+zeromq = "*"
+zlib = "*"
+
+[feature.sharpa.dependencies]
+numpy = ">=1.26,<3"
+
+[feature.linker.dependencies]
+numpy = ">=1.26,<3"
+pyyaml = ">=6"
+
+[feature.linker.pypi-dependencies]
+python-can = ">=4.3,<5"
+
+[feature.wuji.dependencies]
+numpy = ">=1.26,<3"
+
+[feature.wuji.pypi-dependencies]
+wuji-sdk = ">=2026.8.3,<2026.9"
+
+# Sharpa's V4 optimizer extensions are compiled specifically for CPython 3.10.
+# Keep this numerical runtime separate from ROS and communicate through a
+# local sidecar socket.
+[feature.retarget-v4.dependencies]
+python = "3.10.*"
+
+[feature.retarget-v4.pypi-dependencies]
+numpy = "==1.26.4"
+scipy = "==1.14.0"
+casadi = "==3.7.0"
+rich = "==14.0.0"
+
+# ── ROS2 as a transport/bridge layer. Separate robostack channel; pulled in
+#    only by the ros2 environment. This is what binds the Python version. ──
+[feature.ros2-humble]
+channels = ["https://prefix.dev/robostack-humble"]
+
+[feature.ros2-humble.activation]
+scripts = ["ros2/install/setup.bash"]
+
+[feature.ros2-humble.dependencies]
+# colcon-core 0.19 implements --symlink-install through legacy
+# `setup.py develop` options removed by setuptools 80.
+setuptools = ">=68,<80"
+ros-humble-desktop = "*"
+rosdep = "*"
+colcon-common-extensions = "*"
+ros-humble-ament-cmake = "*"
+ros-humble-ament-cmake-python = "*"
+ros-humble-rclpy = "*"
+ros-humble-action-msgs = "*"
+ros-humble-builtin-interfaces = "*"
+ros-humble-control-msgs = "*"
+ros-humble-geometry-msgs = "*"
+ros-humble-sensor-msgs = "*"
+ros-humble-std-msgs = "*"
+ros-humble-trajectory-msgs = "*"
+ros-humble-tf2-ros = "*"
+ros-humble-launch = "*"
+ros-humble-launch-ros = "*"
+ros-humble-ros2cli = "*"
+ros-humble-ros2launch = "*"
+ros-humble-ros2bag = "*"
+
+[environments]
+# default: pure HAL + dev + vendor backends, NO ros — keeps `src/` testable
+#          without a ROS environment (the hard boundary in docs/architecture.md).
+default = { features = ["dev", "manus", "sharpa", "linker", "wuji"], solve-group = "ros2-humble" }
+# ros2: same stack plus robostack-humble, co-solved so versions stay consistent.
+ros2 = { features = ["dev", "manus", "sharpa", "linker", "wuji", "ros2-humble"], solve-group = "ros2-humble" }
+# Python 3.10 ABI runtime for the upstream V4 retargeting optimizer.
+retarget-v4 = { features = ["retarget-v4"], no-default-feature = true }
+
+[tasks]
+test = "pytest"
+lint = "ruff check src tests ros2/src examples tools hatch_build.py"
+wheel = "python -m build --wheel"
+hooks = "pre-commit run --all-files"
+hooks-install = "pre-commit install --install-hooks"
+stage-vendor-sdks = "python tools/vendor_sdks.py --clean"
+stage-retarget-v4 = "python tools/stage_retarget_v4_ros.py --clean"
+build-manus-bridge = "python tools/build_manus_bridge.py"
+build-xynova-arm-bridge = "python tools/build_xynova_arm_bridge.py"
+install-all = "pixi install --all"
+ros-build = { cmd = "colcon build --symlink-install", cwd = "ros2" }
+ros-test = { cmd = "colcon test --python-testing pytest && colcon test-result --verbose", cwd = "ros2" }
+teleop = { cmd = "bash -c 'source install/setup.bash && ros2 launch manus_sharpa_teleop teleop.launch.py \"$@\"' --", cwd = "ros2" }
+teleop-fake = { cmd = "bash -c 'source install/setup.bash && ros2 launch manus_sharpa_teleop fake_teleop.launch.py \"$@\"' --", cwd = "ros2" }
+teleop-wuji = { cmd = "bash -c 'source install/setup.bash && ros2 launch manus_wuji_teleop teleop.launch.py \"$@\"' --", cwd = "ros2" }

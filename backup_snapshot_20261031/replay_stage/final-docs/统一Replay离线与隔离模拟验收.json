@@ -1,0 +1,378 @@
+{
+  "date": "2026-10-28",
+  "scope": "offline_and_isolated_process_mock_only",
+  "tests": {
+    "passed": 196,
+    "new_tests": 30,
+    "log": "/home/descfly/apex_n_sharpa/.unified-replay-stage/tests-final.log"
+  },
+  "simulation": {
+    "schema": "unified_replay_validation_v1",
+    "task": "unified78_validation_1793171077641728617",
+    "episode_index": 42,
+    "source": "/mnt/apex-data/apex_n_sharpa/data/lerobot/unified78_validation_1793171077641728617/episode_00000042",
+    "output": "/mnt/apex-data/apex_n_sharpa/data/replay_runs/unified78_validation_1793171077641728617/episode_00000042/offline-1793172446921105134-7b2767db",
+    "hardware_initialized": false,
+    "hardware_commands_sent": 0,
+    "scope": "offline_and_mock_only",
+    "physical_execution_supported": false,
+    "state": "SIMULATION_PASS",
+    "plan_sha256": "a77db134a6c2c9da0d2a07624a17b5d6565fc289bea25d3ed3b641673cdbfc60",
+    "capture_id": "25949b07dfbc4dda941d3c47547a1403",
+    "diagnostic": true,
+    "duration_ns": 1450000000,
+    "events": {
+      "body": 74,
+      "chassis": 74,
+      "left_hand": 73,
+      "right_hand": 73
+    },
+    "implementation": {
+      "src/unified_replay/__init__.py": "c7d7eafafbd42f7923a39d18f2b587a520cb887317614a3cbc707a671182d686",
+      "src/unified_replay/isolation.py": "bb6b42d6e3aa8573c4115a4e8977f5a4042cb8dd091515f800ae69163afb68c2",
+      "src/unified_replay/simulator.py": "2437d95590af8c43bfe3180dd228b17703e900fb2b270dc4960dfc1fcfd2fda3",
+      "src/unified_replay/main.py": "019b3a490c47b5a5c8c4a7b8ee0f6bf96c83daf63877c25b158519c0ebe4de6f",
+      "src/unified_replay/contract.py": "ddc4278641bef77ef23ca00b1682a4ee2c0f09eeb74fc0fdc63577a27aef7d00"
+    },
+    "limitation": [
+      "physical tracking",
+      "collision/reachability",
+      "real network timing",
+      "hardware stop confirmation"
+    ],
+    "scenarios": [
+      {
+        "scenario": "normal",
+        "status": "COMPLETED",
+        "experiment_passed": true,
+        "trigger": null,
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": 552741,
+        "stop_latency_ns": 0,
+        "max_lateness_ns": 868706,
+        "mock_commands_emitted": 294
+      },
+      {
+        "scenario": "left_sdk_reject",
+        "status": "STOPPED_ON_FAULT",
+        "experiment_passed": true,
+        "trigger": "left_hand:mock_sdk_rejected",
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": 443399,
+        "stop_latency_ns": 539731,
+        "max_lateness_ns": 1028987,
+        "mock_commands_emitted": 67
+      },
+      {
+        "scenario": "right_sdk_reject",
+        "status": "STOPPED_ON_FAULT",
+        "experiment_passed": true,
+        "trigger": "right_hand:mock_sdk_rejected",
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": 105192,
+        "stop_latency_ns": 473819,
+        "max_lateness_ns": 998519,
+        "mock_commands_emitted": 66
+      },
+      {
+        "scenario": "body_feedback_loss",
+        "status": "STOPPED_ON_FAULT",
+        "experiment_passed": true,
+        "trigger": "body:feedback_timeout",
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": 486960,
+        "stop_latency_ns": 537390,
+        "max_lateness_ns": 817728,
+        "mock_commands_emitted": 84
+      },
+      {
+        "scenario": "chassis_feedback_loss",
+        "status": "STOPPED_ON_FAULT",
+        "experiment_passed": true,
+        "trigger": "chassis:feedback_timeout",
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": 515421,
+        "stop_latency_ns": 553871,
+        "max_lateness_ns": 606776,
+        "mock_commands_emitted": 84
+      },
+      {
+        "scenario": "left_heartbeat_loss",
+        "status": "STOPPED_ON_FAULT",
+        "experiment_passed": true,
+        "trigger": "left_hand:heartbeat_timeout",
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": 269836,
+        "stop_latency_ns": 457709,
+        "max_lateness_ns": 794763,
+        "mock_commands_emitted": 102
+      },
+      {
+        "scenario": "left_link_partition",
+        "status": "STOP_UNCONFIRMED",
+        "experiment_passed": true,
+        "trigger": "left_hand:missing_stop_ack",
+        "mock_stop_confirmed": false,
+        "missing_stop_ack": [
+          "left_hand"
+        ],
+        "start_spread_ns": 408168,
+        "stop_latency_ns": 309166,
+        "max_lateness_ns": 1011639,
+        "mock_commands_emitted": 78
+      },
+      {
+        "scenario": "coordinator_loss",
+        "status": "STOPPED_ON_FAULT",
+        "experiment_passed": true,
+        "trigger": "coordinator_heartbeat_loss",
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": 640432,
+        "stop_latency_ns": 186874381,
+        "max_lateness_ns": 563796,
+        "mock_commands_emitted": 102
+      },
+      {
+        "scenario": "right_scheduler_stall",
+        "status": "STOPPED_ON_FAULT",
+        "experiment_passed": true,
+        "trigger": "right_hand:schedule_deadline_missed",
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": 462239,
+        "stop_latency_ns": 389498,
+        "max_lateness_ns": 837019,
+        "mock_commands_emitted": 77
+      },
+      {
+        "scenario": "clock_jump",
+        "status": "STOPPED_ON_FAULT",
+        "experiment_passed": true,
+        "trigger": "left_hand:clock_mapping_changed",
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": 485330,
+        "stop_latency_ns": 576701,
+        "max_lateness_ns": 6994941,
+        "mock_commands_emitted": 69
+      },
+      {
+        "scenario": "prepare_hash_mismatch",
+        "status": "STOPPED_ON_FAULT",
+        "experiment_passed": true,
+        "trigger": "prepared_plan_hash_mismatch",
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": null,
+        "stop_latency_ns": 555371,
+        "max_lateness_ns": 0,
+        "mock_commands_emitted": 0
+      },
+      {
+        "scenario": "missing_ready",
+        "status": "STOPPED_ON_FAULT",
+        "experiment_passed": true,
+        "trigger": "ready_barrier_timeout",
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": null,
+        "stop_latency_ns": 310876,
+        "max_lateness_ns": 0,
+        "mock_commands_emitted": 0
+      },
+      {
+        "scenario": "start_pose_mismatch",
+        "status": "STOPPED_ON_FAULT",
+        "experiment_passed": true,
+        "trigger": "left_hand: initial_pose_mismatch",
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": null,
+        "stop_latency_ns": 501120,
+        "max_lateness_ns": 0,
+        "mock_commands_emitted": 0
+      },
+      {
+        "scenario": "body_process_exit",
+        "status": "STOP_UNCONFIRMED",
+        "experiment_passed": true,
+        "trigger": "body:missing_stop_ack",
+        "mock_stop_confirmed": false,
+        "missing_stop_ack": [
+          "body"
+        ],
+        "start_spread_ns": 237095,
+        "stop_latency_ns": 539051,
+        "max_lateness_ns": 875224,
+        "mock_commands_emitted": 49
+      },
+      {
+        "scenario": "chassis_stop_ack_loss",
+        "status": "STOP_UNCONFIRMED",
+        "experiment_passed": true,
+        "trigger": "chassis:missing_stop_ack",
+        "mock_stop_confirmed": false,
+        "missing_stop_ack": [
+          "chassis"
+        ],
+        "start_spread_ns": 435348,
+        "stop_latency_ns": 0,
+        "max_lateness_ns": 896022,
+        "mock_commands_emitted": 220
+      }
+    ],
+    "source_unchanged": true
+  },
+  "normal_metrics": {
+    "start_spread_ns": 552741,
+    "max_lateness_ns": 868706,
+    "max_common_schedule_error_ns": 1024728,
+    "clock_mapping": {
+      "body": {
+        "offset_ns": 117510,
+        "uncertainty_ns": 172273,
+        "injected_epoch_offset_ns": 0
+      },
+      "left_hand": {
+        "offset_ns": 35450165000,
+        "uncertainty_ns": 208699,
+        "injected_epoch_offset_ns": 35450000000
+      },
+      "right_hand": {
+        "offset_ns": -12344830410,
+        "uncertainty_ns": 192269,
+        "injected_epoch_offset_ns": -12345000000
+      },
+      "chassis": {
+        "offset_ns": 7000162480,
+        "uncertainty_ns": 194749,
+        "injected_epoch_offset_ns": 7000000000
+      }
+    },
+    "mock_commands_emitted": 294,
+    "payload_order_verified": true,
+    "commands_after_local_stop": 0
+  },
+  "deployment": {
+    "state": "DEPLOYED",
+    "backup_root": "/home/descfly/apex_n_sharpa/deployment/unified-replay-offline-1793172524250934622",
+    "files": [
+      {
+        "source": "src/unified_replay/isolation.py",
+        "sha256": "bb6b42d6e3aa8573c4115a4e8977f5a4042cb8dd091515f800ae69163afb68c2",
+        "before": null,
+        "mode": 420,
+        "target": "/home/descfly/apex_n_sharpa/src/unified_replay/isolation.py",
+        "rollback": "Remove this newly added file; preserve datasets and reports"
+      },
+      {
+        "source": "src/unified_replay/__init__.py",
+        "sha256": "c7d7eafafbd42f7923a39d18f2b587a520cb887317614a3cbc707a671182d686",
+        "before": null,
+        "mode": 420,
+        "target": "/home/descfly/apex_n_sharpa/src/unified_replay/__init__.py",
+        "rollback": "Remove this newly added file; preserve datasets and reports"
+      },
+      {
+        "source": "src/unified_replay/simulator.py",
+        "sha256": "2437d95590af8c43bfe3180dd228b17703e900fb2b270dc4960dfc1fcfd2fda3",
+        "before": null,
+        "mode": 420,
+        "target": "/home/descfly/apex_n_sharpa/src/unified_replay/simulator.py",
+        "rollback": "Remove this newly added file; preserve datasets and reports"
+      },
+      {
+        "source": "src/unified_replay/main.py",
+        "sha256": "019b3a490c47b5a5c8c4a7b8ee0f6bf96c83daf63877c25b158519c0ebe4de6f",
+        "before": null,
+        "mode": 420,
+        "target": "/home/descfly/apex_n_sharpa/src/unified_replay/main.py",
+        "rollback": "Remove this newly added file; preserve datasets and reports"
+      },
+      {
+        "source": "src/unified_replay/contract.py",
+        "sha256": "ddc4278641bef77ef23ca00b1682a4ee2c0f09eeb74fc0fdc63577a27aef7d00",
+        "before": null,
+        "mode": 420,
+        "target": "/home/descfly/apex_n_sharpa/src/unified_replay/contract.py",
+        "rollback": "Remove this newly added file; preserve datasets and reports"
+      },
+      {
+        "source": "replay_unified",
+        "sha256": "fb5935e1ceccec8f13412a503f670dc4f34363882bc07f392a7e2561c10c7bf5",
+        "before": null,
+        "mode": 493,
+        "target": "/home/descfly/apex_n_sharpa/replay_unified",
+        "rollback": "Remove this newly added file; preserve datasets and reports"
+      },
+      {
+        "source": "tests/test_unified_replay.py",
+        "sha256": "58b8658b7fe1eb5116270f06028275eb526924dbde5acd705c21ee44adb058e5",
+        "before": null,
+        "mode": 420,
+        "target": "/home/descfly/apex_n_sharpa/tests/test_unified_replay.py",
+        "rollback": "Remove this newly added file; preserve datasets and reports"
+      }
+    ],
+    "services_restarted": false,
+    "robot_files_modified": false,
+    "hardware_execution_supported": false
+  },
+  "installed_smoke": {
+    "schema": "unified_replay_validation_v1",
+    "task": "unified78_validation_1793171077641728617",
+    "episode_index": 42,
+    "source": "/mnt/apex-data/apex_n_sharpa/data/lerobot/unified78_validation_1793171077641728617/episode_00000042",
+    "output": "/mnt/apex-data/apex_n_sharpa/data/replay_runs/unified78_validation_1793171077641728617/episode_00000042/offline-1793172559869127878-60ba30bc",
+    "hardware_initialized": false,
+    "hardware_commands_sent": 0,
+    "scope": "offline_and_mock_only",
+    "physical_execution_supported": false,
+    "state": "SIMULATION_PASS",
+    "plan_sha256": "a77db134a6c2c9da0d2a07624a17b5d6565fc289bea25d3ed3b641673cdbfc60",
+    "capture_id": "25949b07dfbc4dda941d3c47547a1403",
+    "diagnostic": true,
+    "duration_ns": 1450000000,
+    "events": {
+      "body": 74,
+      "chassis": 74,
+      "left_hand": 73,
+      "right_hand": 73
+    },
+    "implementation": {
+      "src/unified_replay/__init__.py": "c7d7eafafbd42f7923a39d18f2b587a520cb887317614a3cbc707a671182d686",
+      "src/unified_replay/isolation.py": "bb6b42d6e3aa8573c4115a4e8977f5a4042cb8dd091515f800ae69163afb68c2",
+      "src/unified_replay/simulator.py": "2437d95590af8c43bfe3180dd228b17703e900fb2b270dc4960dfc1fcfd2fda3",
+      "src/unified_replay/main.py": "019b3a490c47b5a5c8c4a7b8ee0f6bf96c83daf63877c25b158519c0ebe4de6f",
+      "src/unified_replay/contract.py": "ddc4278641bef77ef23ca00b1682a4ee2c0f09eeb74fc0fdc63577a27aef7d00"
+    },
+    "limitation": [
+      "physical tracking",
+      "collision/reachability",
+      "real network timing",
+      "hardware stop confirmation"
+    ],
+    "scenarios": [
+      {
+        "scenario": "normal",
+        "status": "COMPLETED",
+        "experiment_passed": true,
+        "trigger": null,
+        "mock_stop_confirmed": true,
+        "missing_stop_ack": [],
+        "start_spread_ns": 299415,
+        "stop_latency_ns": 0,
+        "max_lateness_ns": 995514,
+        "mock_commands_emitted": 294
+      }
+    ],
+    "source_unchanged": true
+  }
+}

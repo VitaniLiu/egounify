@@ -1,0 +1,1 @@
+"""Vendor-coupled hardware implementations."""

@@ -1,0 +1,78 @@
+{
+  "README.md": {
+    "sha256": "bc0aedfac32e5ba6026f369c3fb5b2ac0994fa3f4ae1ad62d2466607e65dd63e",
+    "size": 485
+  },
+  "VERSION": {
+    "sha256": "a0ef95d3c3e6b0e6e3acfadb390763c06eae92848ca0f86f5d2265218a5ff535",
+    "size": 77
+  },
+  "config/tactile.json": {
+    "sha256": "528aaf8e17aeeb2689f84b9865eedaa8e09c6c901809f5eb120097205f13333f",
+    "size": 518
+  },
+  "include/SharpaWaveSDK.h": {
+    "sha256": "7a36b59ba64c78575dac78b5d6af2c5fcedeed16ca08bec2e0b54d611a63ef7c",
+    "size": 39302
+  },
+  "include/def.h": {
+    "sha256": "1dd711be748e13fb6e72f083b710b810c0ea41b46677542a03899cddfd879895",
+    "size": 3158
+  },
+  "include/infer_offline.h": {
+    "sha256": "1673d40a231641ea1af52b49f98c012de37ba128ea6b3726debee9f24031465e",
+    "size": 391
+  },
+  "include/tensor.h": {
+    "sha256": "409a83e7602b63e0a27167972f869b558675417f430a28a7d9cc94e1f274c3cd",
+    "size": 10408
+  },
+  "include/touch.h": {
+    "sha256": "1557470b060acc5ee661502c291b2cdf48fb3bd594c851ace089185c6d04eaca",
+    "size": 7836
+  },
+  "lib/libSharpaWaveSDKWrapper.so": {
+    "sha256": "914874480bd0399a56017f6a8f195d8dedbc32a4035114cab7f3ae21f0354ae3",
+    "size": 7404320
+  },
+  "lib/libsharpa-wave-sdk.so": {
+    "sha256": "1557bb22e75f523acec9bcb45bb8b111391129912c49b61be4a606d994456eb3",
+    "size": 13032360
+  },
+  "pilot_sdk": {
+    "sha256": "50f526045e2962b991cb28e5f7550d15d000fe9f4fea9d32f21fd6d63ac2389a",
+    "size": 45291120
+  },
+  "python/sharpa/__init__.py": {
+    "sha256": "4e52a7b92f9cfd989317df75a18e7d29a8cb29ce26efe910f0641622c4b2739c",
+    "size": 2042
+  },
+  "python/sharpa/__pycache__/__init__.cpython-312.pyc": {
+    "sha256": "7c3d6cddd86a221ec1bfe761b20678d1493009ea96e1a1ce35fc6b1d53567c4c",
+    "size": 3388
+  },
+  "python/sharpa/__pycache__/__init__.cpython-313.pyc": {
+    "sha256": "704acf64f3450eeb716335f9b0fb2e4a72261d4d07de22cfe6ee276e4cc4a53f",
+    "size": 3462
+  },
+  "python/sharpa/sharpa.cpython-310-x86_64-linux-gnu.so": {
+    "sha256": "d14185232bd14d9b387f152f883e17eebbd051b1df0b56e6cf55498c118e0190",
+    "size": 1192728
+  },
+  "python/sharpa/sharpa.cpython-311-x86_64-linux-gnu.so": {
+    "sha256": "a48565d6a564688149e8b6c2b21e657bfb8fa8fa8cb577cd4da325a31cdeeb40",
+    "size": 1184688
+  },
+  "python/sharpa/sharpa.cpython-312-x86_64-linux-gnu.so": {
+    "sha256": "53c0149094bc5ea25937b2faa910282d679ddb706674e971560b3506959f07f9",
+    "size": 1082536
+  },
+  "python/sharpa/sharpa.cpython-313-x86_64-linux-gnu.so": {
+    "sha256": "7a92baf1b67395f0f0249059fc1d16fd7d3da936562c5113822999a8b9dac659",
+    "size": 1185952
+  },
+  "sdk-release-info.json": {
+    "sha256": "8ee8b171cff19d07272840b68b7e47b1ea8dabadadf9db992ffd515a8a2cb345",
+    "size": 1989
+  }
+}

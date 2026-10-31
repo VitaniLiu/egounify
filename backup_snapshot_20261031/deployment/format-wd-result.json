@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "data_root": "/mnt/apex-data/apex_n_sharpa/data",
+  "filesystem": "ext4",
+  "serial": "WD-WX12A367D1A2",
+  "configuration_restored": true,
+  "tests_report": "deployment/pytest-ext4.xml",
+  "real_data_processed": false
+}

@@ -1,0 +1,9 @@
+"""Compatibility aliases for the explicit Sharpa Wave joint schema."""
+
+from . import schema as _schema
+
+SHARPA_WAVE_JOINT_SCHEMA = _schema.SHARPA_WAVE_JOINT_SCHEMA
+SHARPA_JOINT_NAMES = SHARPA_WAVE_JOINT_SCHEMA.names
+SHARPA_JOINT_LIMITS = SHARPA_WAVE_JOINT_SCHEMA.limits
+SHARPA_OPEN_POSITION = _schema.SHARPA_OPEN_POSITION
+SHARPA_CLOSE_POSITION = _schema.SHARPA_CLOSE_POSITION

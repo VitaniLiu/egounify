@@ -1,0 +1,26 @@
+{
+  "state": "PASS",
+  "task": "unified78_validation_1793171077641728617",
+  "episode_index": 42,
+  "frames": 30,
+  "dimensions": 78,
+  "valid_dimensions": 76,
+  "raw": "/mnt/apex-data/apex_n_sharpa/data/raw_data/apex_data/unified78_validation_1793171077641728617/episode_00000042",
+  "hdf5": "/mnt/apex-data/apex_n_sharpa/data/hdf5/unified78_validation_1793171077641728617/hdf5_00000042.hdf5",
+  "lerobot": "/mnt/apex-data/apex_n_sharpa/data/lerobot/unified78_validation_1793171077641728617/episode_00000042",
+  "diagnostic": true,
+  "hardware_initialized": false,
+  "checks": [
+    "unified entrypoint end to end",
+    "native ROS MCAP import",
+    "same episode 42 at every stage",
+    "body5 measured/target values",
+    "left/right hand feedback vs accepted action",
+    "gripper-only mask",
+    "20Hz integer grid",
+    "causal action alignment",
+    "full-rate replay stream equality",
+    "idempotent rerun",
+    "diagnostic default rejection"
+  ]
+}

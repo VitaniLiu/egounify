@@ -1,0 +1,14 @@
+{
+  "state": "PASS",
+  "lerobot_package": "0.3.3",
+  "format": "v2.1",
+  "episode_index": 42,
+  "frames": 30,
+  "checks": [
+    "upstream image/state/action read",
+    "temporal padding at both boundaries",
+    "original episode ID retained",
+    "spawn DataLoader worker",
+    "diagnostic rejected by default"
+  ]
+}

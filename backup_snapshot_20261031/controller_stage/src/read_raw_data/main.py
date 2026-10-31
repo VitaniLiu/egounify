@@ -1,0 +1,378 @@
+from pathlib import Path
+import argparse, json, os, shutil, signal, fcntl, hashlib
+
+ROOT = Path(__file__).resolve().parents[2]
+import sys
+sys.path.insert(0,str(ROOT / "src"))
+import unified_capture as unified
+# Runtime data always lives on the identified WD USB disk, never beside code.
+STORAGE_MOUNT = Path(
+    os.environ.get(
+        "APEX_STORAGE_MOUNT",
+        (
+            "/mnt/apex-data"
+            if os.path.ismount("/mnt/apex-data")
+            else "/media/descfly/My Passport"
+        ),
+    )
+)
+DATA = STORAGE_MOUNT / "apex_n_sharpa" / "data"
+EXPECTED_SERIAL = "WD-WX12A367D1A2"
+_STORAGE_DEVICE = None
+
+
+def ensure_storage():
+    import subprocess
+
+    global _STORAGE_DEVICE
+    mount = STORAGE_MOUNT.resolve()
+    if not STORAGE_MOUNT.is_absolute() or not os.path.ismount(mount):
+        raise RuntimeError(f"WD硬盘未挂载: {STORAGE_MOUNT}；拒绝回退到系统盘")
+    device = subprocess.check_output(
+        ["findmnt", "-rn", "-M", str(mount), "-o", "SOURCE"], text=True
+    ).strip()
+    serials = subprocess.check_output(
+        ["lsblk", "-sn", "-o", "SERIAL", device], text=True
+    ).split()
+    if EXPECTED_SERIAL not in serials:
+        raise RuntimeError(f"挂载设备不是指定WD硬盘: {device}, serial={serials}")
+    if DATA.resolve() != mount / "apex_n_sharpa" / "data":
+        raise RuntimeError("外置数据目录不允许通过符号链接转向其他位置")
+    _STORAGE_DEVICE = mount.stat().st_dev
+    return mount
+
+
+def safe(path):
+    if _STORAGE_DEVICE is None:
+        ensure_storage()
+    if (
+        not os.path.ismount(STORAGE_MOUNT)
+        or STORAGE_MOUNT.stat().st_dev != _STORAGE_DEVICE
+    ):
+        raise RuntimeError("WD硬盘挂载已改变，停止读写")
+    p = Path(path).resolve()
+    if DATA.resolve() not in p.parents:
+        raise ValueError(f"数据路径必须位于外置硬盘 {DATA}: {p}")
+    return p
+
+
+def sync_directory(path):
+    fd = os.open(str(path), os.O_RDONLY)
+    try:
+        os.fsync(fd)
+    finally:
+        os.close(fd)
+
+
+def save(path, value):
+    path = safe(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(path.name + ".tmp")
+    with tmp.open("w") as f:
+        json.dump(value, f, ensure_ascii=False, indent=2, allow_nan=False)
+        f.flush()
+        os.fsync(f.fileno())
+    tmp.replace(path)
+    sync_directory(path.parent)
+
+
+def digest(path):
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for block in iter(lambda: f.read(4 * 1024 * 1024), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def lock(name):
+    ensure_storage()
+    DATA.mkdir(parents=True, exist_ok=True)
+    f = (DATA / ("." + name + ".lock")).open("a")
+    fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    return f
+
+
+def interrupted(signum, frame):
+    raise KeyboardInterrupt(f"signal {signum}")
+
+
+signal.signal(signal.SIGTERM, interrupted)
+import re, stat, datetime, time
+from zoneinfo import ZoneInfo
+from tqdm import tqdm
+
+
+class Source:
+    def __init__(self, root, ssh=None, timezone="Asia/Shanghai"):
+        self.root = str(root).rstrip("/") or "/"
+        self.identity = f'{ssh or "local"}:{self.root}'
+        self.timezone = timezone
+        self.client = None
+        if ssh:
+            import paramiko
+
+            user, host = ssh.split("@", 1)
+            self.client = paramiko.SSHClient()
+            self.client.load_system_host_keys()
+            self.client.connect(host, username=user, timeout=15)
+            self.fs = self.client.open_sftp()
+        else:
+            self.fs = None
+
+    def stat(self, p):
+        return self.fs.lstat(p) if self.fs else os.lstat(p)
+
+    def names(self, p):
+        return sorted(self.fs.listdir(p) if self.fs else os.listdir(p))
+
+    def open(self, p):
+        return self.fs.open(p, "rb") if self.fs else open(p, "rb")
+
+    def walk(self, p):
+        for name in self.names(p):
+            child = p + "/" + name
+            s = self.stat(child)
+            if stat.S_ISLNK(s.st_mode):
+                raise ValueError(f"符号链接须先实体化，避免漏数据: {child}")
+            if stat.S_ISDIR(s.st_mode):
+                yield from self.walk(child)
+            elif stat.S_ISREG(s.st_mode):
+                yield child, s
+            else:
+                raise ValueError(f"不支持的特殊文件: {child}")
+
+    def directories(self, p):
+        for name in self.names(p):
+            child = p + "/" + name
+            info = self.stat(child)
+            if stat.S_ISLNK(info.st_mode):
+                raise ValueError(f"不支持符号链接: {child}")
+            if stat.S_ISDIR(info.st_mode):
+                yield child
+                yield from self.directories(child)
+
+    def close(self):
+        if self.client:
+            self.client.close()
+
+
+def capture_time(source, path):
+    match = re.search(r"(\d{2})-(\d{2})-(\d{2})-(\d{2})-(\d{2})-(\d{2})$", path)
+    if match:
+        dt = datetime.datetime.strptime(
+            "-".join(match.groups()), "%y-%m-%d-%H-%M-%S"
+        ).replace(tzinfo=ZoneInfo(source.timezone))
+    else:
+        try:
+            with source.open(path + "/capture_time.json") as f:
+                value = json.load(f)["utc"]
+        except (FileNotFoundError, IOError):
+            raise ValueError(f"无法确定采集时间: {path}; 添加capture_time.json")
+        dt = datetime.datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            raise ValueError("capture_time必须包含明确时区")
+    return dt.astimezone(datetime.timezone.utc)
+
+
+def copy_task(source, dest):
+    dest.mkdir(parents=True, exist_ok=True)
+    for p in dest.glob(".*.partial"):
+        shutil.rmtree(p)
+    journal = dest / "copy_progress.json"
+    state = (
+        json.loads(journal.read_text())
+        if journal.exists()
+        else {"episodes": {}, "source": source.identity}
+    )
+    if state["source"] == source.root and source.client is None:
+        state["source"] = source.identity
+    if state["source"] != source.identity:
+        raise ValueError("同一任务不可切换源路径")
+    dirs = []
+    extras = []
+    for name in source.names(source.root):
+        p = source.root + "/" + name
+        s = source.stat(p)
+        if stat.S_ISDIR(s.st_mode):
+            dirs.append(p)
+        elif stat.S_ISREG(s.st_mode):
+            extras.append((p, s))
+        else:
+            raise ValueError(f"不支持的源文件: {p}")
+    dirs.sort(key=lambda p: (capture_time(source, p), p))
+    if not dirs:
+        raise ValueError("源目录没有episode子目录")
+    # Persist source-to-episode assignment before copying; never silently renumber.
+    known = list(state["episodes"])
+    if known and dirs[: len(known)] != known:
+        raise ValueError("源采集顺序改变，请使用新任务名，防止apex/sharpa编号错配")
+    for i, p in enumerate(dirs):
+        state["episodes"].setdefault(p, {"index": i, "status": "pending"})
+    save(journal, state)
+    jobs = [(p, None, f"episode_{i:08d}") for i, p in enumerate(dirs)]
+    if extras:
+        jobs.append((source.root, extras, "_collection"))
+    for p, files, name in jobs:
+        target = dest / name
+        temp = dest / ("." + name + ".partial")
+        state["current"] = {"source": p, "episode": name, "status": "scanning"}
+        save(journal, state)
+        try:
+            # Do not enumerate later episode contents before this episode commits.
+            if files is None:
+                files = list(source.walk(p))
+            directories = list(source.directories(p)) if name != "_collection" else []
+            inventory = [
+                {"path": f[len(p) + 1 :], "size": s.st_size, "mtime": s.st_mtime}
+                for f, s in files
+            ]
+            if target.exists():
+                old = json.loads((target / "manifest.json").read_text())
+                if old["inventory"] != inventory:
+                    raise ValueError(f"源episode已改变: {p}; 请使用新任务名")
+                for item in old["files"]:
+                    local = target / "payload" / item["path"]
+                    if not local.exists() or digest(local) != item["sha256"]:
+                        raise ValueError(f"本地副本损坏: {local}")
+                for directory in directories:
+                    if not (target / "payload" / directory[len(p) + 1 :]).is_dir():
+                        raise ValueError("本地目录缺失")
+                state["current"]["status"] = "complete"
+                if p in state["episodes"]:
+                    state["episodes"][p]["status"] = "complete"
+                save(journal, state)
+                continue
+            safe(temp)
+            temp.mkdir()
+            (temp / "payload").mkdir()
+            copied = []
+            for directory in directories:
+                (temp / "payload" / directory[len(p) + 1 :]).mkdir(
+                    parents=True, exist_ok=True
+                )
+            state["current"]["status"] = "copying"
+            last_save = time.monotonic()
+            with tqdm(
+                total=sum(s.st_size for _, s in files),
+                unit="B",
+                unit_scale=True,
+                desc=name,
+            ) as bar:
+                for f, s in files:
+                    rel = f[len(p) + 1 :]
+                    out = safe(temp / "payload" / rel)
+                    out.parent.mkdir(parents=True, exist_ok=True)
+                    state["current"].update(file=rel, bytes=0)
+                    save(journal, state)
+                    h = hashlib.sha256()
+                    with source.open(f) as src, out.open("wb") as dst:
+                        while True:
+                            block = src.read(4 * 1024 * 1024)
+                            if not block:
+                                break
+                            dst.write(block)
+                            h.update(block)
+                            bar.update(len(block))
+                            state["current"]["bytes"] += len(block)
+                            if time.monotonic() - last_save >= 1:
+                                save(journal, state)
+                                last_save = time.monotonic()
+                        dst.flush()
+                        os.fsync(dst.fileno())
+                    now = source.stat(f)
+                    if (
+                        now.st_size != s.st_size
+                        or now.st_mtime != s.st_mtime
+                        or out.stat().st_size != s.st_size
+                    ):
+                        raise ValueError(f"录制仍在写入或源变化: {f}")
+                    copied.append(
+                        {"path": rel, "sha256": h.hexdigest(), "size": s.st_size}
+                    )
+                    save(journal, state)
+            if name != "_collection":
+                final = [
+                    {"path": f[len(p) + 1 :], "size": s.st_size, "mtime": s.st_mtime}
+                    for f, s in source.walk(p)
+                ]
+                if final != inventory or list(source.directories(p)) != directories:
+                    raise ValueError("复制期间源目录或文件改变")
+            save(
+                temp / "manifest.json",
+                {
+                    "source": p,
+                    "inventory": inventory,
+                    "files": copied,
+                    "directories": [d[len(p) + 1 :] for d in directories],
+                    "classification": "payload preserves all original paths",
+                },
+            )
+            temp.rename(target)
+            sync_directory(dest)
+            state["current"]["status"] = "complete"
+            if p in state["episodes"]:
+                state["episodes"][p]["status"] = "complete"
+            save(journal, state)
+            tqdm.write(f"完成 {name} ({len(files)} files)")
+        except BaseException as exc:
+            # Cleanup must still happen when saving a checkpoint itself fails.
+            shutil.rmtree(temp, ignore_errors=True)
+            state["current"].update(status="interrupted", error=str(exc))
+            if p in state["episodes"]:
+                state["episodes"][p]["status"] = "interrupted"
+            save(journal, state)
+            raise
+
+
+def main():
+    p = argparse.ArgumentParser(
+        description="从机器人SSH顺序读取录制，保存到WD硬盘；本地测试须显式--local-source"
+    )
+    p.add_argument("--apex-source", default="/home/user/gento_replay_bags")
+    p.add_argument("--sharpa-source", default=None)
+    p.add_argument(
+        "--ssh", default="user@6.6.7.100", help="机器人SSH地址，默认user@6.6.7.100"
+    )
+    p.add_argument(
+        "--local-source",
+        action="store_true",
+        help="仅用于显式本地导入/离线测试，不连接机器人",
+    )
+    p.add_argument(
+        "--sharpa-ssh",
+        default=None,
+        help="可选Sharpa采集主机；未指定时Sharpa源为本地路径",
+    )
+    p.add_argument("--task", required=True)
+    p.add_argument("--unified", action="store_true", help="Import certified body+hands together using fixed recorder episode IDs")
+    p.add_argument("--allow-diagnostic", action="store_true", help="Synthetic validation only")
+    p.add_argument("--episode", type=int, help="Select an original episode ID; never renumber")
+    p.add_argument(
+        "--source-timezone", default="Asia/Shanghai", help="my-bag文件名的采集主机时区"
+    )
+    a = p.parse_args()
+    if not re.fullmatch(r"[\w-]+", a.task):
+        p.error("task仅允许字母数字下划线及连字符")
+    if a.unified and a.sharpa_source:p.error("Unified capture already contains hands; no separate Sharpa source")
+    if not a.unified and (a.allow_diagnostic or a.episode is not None):p.error("These options require --unified")
+    if a.episode is not None and not 0<=a.episode<100_000_000:p.error("Invalid episode index")
+    guard = lock("read_raw_data")
+    for kind, path in [("apex", a.apex_source), ("sharpa", a.sharpa_source)]:
+        if not path:
+            print("Sharpa源路径未设置，保留空目录")
+            continue
+        endpoint = (
+            (None if a.local_source else a.ssh) if kind == "apex" else a.sharpa_ssh
+        )
+        source = Source(path, endpoint, a.source_timezone)
+        try:
+            if a.unified:
+                from import_unified import copy_unified
+                copy_unified(source,DATA/'raw_data/apex_data'/a.task,save,safe,a.allow_diagnostic,a.episode)
+            else:copy_task(source, safe(DATA / "raw_data" / f"{kind}_data" / a.task))
+        finally:
+            source.close()
+
+
+if __name__ == "__main__":
+    main()

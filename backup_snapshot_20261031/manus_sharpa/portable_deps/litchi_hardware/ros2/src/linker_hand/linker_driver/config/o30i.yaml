@@ -1,0 +1,22 @@
+params:
+  model: O30I
+  transport: socketcan
+  channel: can0
+  bitrate: 1000000
+  data_bitrate: 5000000
+  auto_setup_can: false
+  frame_id: -1
+  canfd_device: 0
+  canfd_channel: 0
+  initial_speed: []
+  enable_tactile: false
+  verify_identity: true
+  state_publish_hz: 100.0
+  tactile_publish_hz: 20.0
+
+# HAL positions are radians in a calibrated 0..1 range. The default mapping is
+# vendor_tick = 255 * radians. Add per-joint entries after physical calibration:
+#
+# joint_calibration:
+#   thumb_roll: {gain: 255.0, offset: 0.0}
+joint_calibration: {}

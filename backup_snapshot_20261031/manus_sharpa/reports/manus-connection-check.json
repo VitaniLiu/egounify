@@ -1,0 +1,32 @@
+{
+  "sharpa_initialized": false,
+  "robot_commands_sent": 0,
+  "calibration_applied": false,
+  "sdk_connected": true,
+  "hands": {
+    "left": {
+      "frames": 1380,
+      "unique_sequences": 1380,
+      "observed_hz": 106.1,
+      "keypoint_counts": [
+        25
+      ],
+      "last_frame_age_s": 1.342
+    },
+    "right": {
+      "frames": 1380,
+      "unique_sequences": 1380,
+      "observed_hz": 106.1,
+      "keypoint_counts": [
+        25
+      ],
+      "last_frame_age_s": 1.342
+    }
+  },
+  "glove_enumeration": {
+    "sdk_return_code": 20,
+    "count": null
+  },
+  "both_streaming": true,
+  "elapsed_s": 16.36
+}

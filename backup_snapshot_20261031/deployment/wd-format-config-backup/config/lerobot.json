@@ -1,0 +1,7 @@
+{
+  "fps": 20,
+  "max_skew_ms": 50,
+  "min_frames": 2,
+  "frame_transforms": {},
+  "allow_missing": []
+}

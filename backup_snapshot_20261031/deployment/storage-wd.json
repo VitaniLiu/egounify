@@ -1,0 +1,38 @@
+{
+  "project": "/home/descfly/apex_n_sharpa",
+  "data_root": "/media/descfly/My Passport/apex_n_sharpa/data",
+  "storage_mount": "/media/descfly/My Passport",
+  "disk_serial": "WD-WX12A367D1A2",
+  "filesystem": "exfat",
+  "default_robot": "user@6.6.7.100",
+  "default_robot_source": "/home/user/gento_replay_bags",
+  "directories": [
+    "config",
+    "references",
+    "raw_data/apex_data",
+    "raw_data/sharpa_data",
+    "hdf5",
+    "lerobot",
+    "test_sources"
+  ],
+  "test_result": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "1",
+    "tests": "36",
+    "time": "12.476",
+    "timestamp": "2026-10-24T11:51:02.858401+08:00",
+    "hostname": "av-pipeline"
+  },
+  "test_residual_files": {
+    "raw_data/apex_data": [],
+    "raw_data/sharpa_data": [],
+    "hdf5": [],
+    "lerobot": [],
+    "test_sources": []
+  },
+  "formatted_disk": false,
+  "real_data_copied_or_converted": false,
+  "legacy_project_data_used": false
+}

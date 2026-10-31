@@ -1,0 +1,3 @@
+source;share/gento_replay/environment/ament_prefix_path.sh
+source;share/gento_replay/environment/path.sh
+source;share/gento_replay/environment/pythonpath.sh

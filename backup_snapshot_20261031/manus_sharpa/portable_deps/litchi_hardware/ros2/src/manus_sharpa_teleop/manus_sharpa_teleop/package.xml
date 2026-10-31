@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>manus_sharpa_teleop</name>
+  <version>0.1.0</version>
+  <description>Launch-ready Manus to Sharpa Wave teleoperation pipeline.</description>
+  <maintainer email="boilcy@example.com">boilcy</maintainer>
+  <license>Apache-2.0</license>
+  <license>Proprietary</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>manus_driver</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>sharpa_driver</exec_depend>
+  <exec_depend>sharpa_wave_description</exec_depend>
+
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

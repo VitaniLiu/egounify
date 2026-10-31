@@ -1,0 +1,71 @@
+{
+  "schema": "manus_sharpa_migration_v1",
+  "root": "/mnt/apex-data/apex_n_sharpa/manus_sharpa",
+  "project_link": "/home/descfly/apex_n_sharpa/integrations/manus_sharpa",
+  "source": {
+    "source_host": "real",
+    "source_root": "/home/descfly/code/egoav/sharpa",
+    "source_commit": "b252fe8d78acc13d98d504d3a7c5fad653b8b349",
+    "working_tree_included": true,
+    "archive_sha256": "42032dc848614bba350d3fd94edfa317ba4966b0c61c21a41e380fb1a9768d84"
+  },
+  "copied_files": 711,
+  "modified_copied_files": {
+    "portable_deps/litchi_hardware/ros2/src/sharpa_hand/sharpa_driver/sharpa_driver/node.py": {
+      "source_sha256": "f3bac0106eed47f83da6ba26076af9d7bd4f6d0b2d3b3cc4f1339f793b0c597e",
+      "deployed_sha256": "c7faacd365e2e6e765cd91a663907d47c3747360a173a4194224f33aadd3f062"
+    },
+    "portable_deps/litchi_hardware/src/litchi_hardware/hardware/sharpa/sdk_driver.py": {
+      "source_sha256": "ef87df09928be62bb39ba0aa419c7a9dac705c5e41d26a58b98de9e9384073cb",
+      "deployed_sha256": "a7498dfc15606d7053b8fce39ba59f6275f19d221732384073ed06db9b0c901f"
+    }
+  },
+  "new_files": {
+    "config/hands.json": "32bbb51005e2b38239c624bf8e85061facd7f7baf6a9ebe3777e9cdbe52d3eed",
+    "scripts/fetch_hand_recording.py": "c0e333a2d2e7fab3f086f4eaa6f79db7d1f14cb86d67d3b503ff15245edf24c6",
+    "scripts/replay_hands.sh": "1b4c5012627d27aa5454db9f1adeac6a47b51d9a30c2d040af2feedf50bc71a6",
+    "scripts/setup_hands.sh": "f87d75fff63f0ac9d4643480efd62c7e0712bfd2f61d6664894392d0f05bb6c1",
+    "scripts/start_hands.sh": "a03345a037294589942207bd5745e81d00c45a4a46df7591774bf54b1b03f2f9",
+    "recording/bridge.py": "670cd90212c42b648f99112a73166f397c00745cae874fef33b7bee0a104d70f",
+    "recording/robot_receiver.py": "db2293c08849fe8a28bc4a0ee58fa1bffef4718d1e1a5388350b8a978be914fc",
+    "conversion/hands_data.py": "1ad824f227787bebcc0cb2b113d1c892819b7c99fb1cc39347a4e9488a65dafb",
+    "tests/fake_source_loss.py": "afe17cdcbff2c30b7f3ac1f941f3c8802d1950ce582efec45d5ea7685cf79aee",
+    "tests/test_hands.py": "dfa2fc48b4d33a061429d9500e6fc50f772a61d7e5bd7ed13faa5f1de312ac2c",
+    "reference/info.json": "0edcca8a7f4493f770aa1a5f74a618d4547bc5bc08396ce5ebcf1658ff92b7d8",
+    "reference/schema78.json": "e4ea00fdbf4aa29405f7d8074059379fb90a94ba11a9733a71d74ba3f6b00bd2",
+    "reference/training_schema.json": "11f489639433cd9a4aed45118b115f7bd62590c8be5a371d5b01ba3b9b4c07ee",
+    "hands_common.py": "87d7fbc593f192b57ee30e22c74566eea2e0a75e46fa117eab16a8039e3d7a43",
+    "runtime.py": "8e728b3666b1f327d79f572e4f319492ee8fadf8ba09cc8333ae2aa19f22b9ad",
+    "replay.py": "3154baadb8a50d67708747b5fbe4205e399fdfb0c00d47e1ed75a77c4e170188",
+    "README.md": "08a56164221142059810b14eee68191ae04cc657525faa165564259d182466c0",
+    "pixi": "add72909710686bf477ef4d17ab7f04dd877f68e58d8d120ca181276b981388d",
+    "scripts/check_manus.py": "6a36cc403f789524bb22712a7f6b71472d2c67f91c5ed2555e0a5cd46947c3f9",
+    "scripts/check_mapping.py": "4ed2a9ca59cf959893b8285cbb0d1555ef2af834b7c3d8648ee3962063dc2499",
+    "scripts/reset_hands.py": "32a877b55f4623b14e00aabafeb2cb849091c4a3991d1667f62b4a4725dc0760",
+    "scripts/reset_hands.sh": "74c142141fde4f3c30321253a66a4ccaeeb24b0e707793e9ff512794bd6d128c"
+  },
+  "external_hand_files": [
+    "av-pipeline:/etc/udev/rules.d/99-manus-sensor-dongle.rules",
+    "ms-thor:/home/user/manus_sharpa/robot_receiver.py"
+  ],
+  "serials": {
+    "left": "CE50903ECE53",
+    "right": "CC50933FCC53"
+  },
+  "hardware_started": true,
+  "joint_robot_replay_sync": false,
+  "verification": {
+    "unit_tests_passed": 8,
+    "fake_dual_hand_smoke": true,
+    "fake_source_loss_watchdog": true,
+    "sdk_libraries_load": true,
+    "v4_sidecar_load": true,
+    "public_hashes_unchanged": true,
+    "real_hardware_tested": true,
+    "manus_connection_check": "real left/right streaming, 1380 frames per side, 25 keypoints, no Sharpa initialized",
+    "real_teleop": "connected both hands; stopped on intermittent MANUS source and native watchdog; not continuous success"
+  },
+  "teleop_currently_running": false,
+  "reset_diagnosis": "Sharpa Pilot pilot_sdk holds feedback/discovery UDP ports; actual motion not retried",
+  "reset_fix": "always synchronize native SDK source routing on new connection; no real open retried"
+}

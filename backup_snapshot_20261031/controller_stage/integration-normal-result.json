@@ -1,0 +1,29 @@
+{
+  "schema": "unified_controller_integration_v1",
+  "scenario": "normal",
+  "experiment_passed": false,
+  "status": "STOPPED_ON_FAULT",
+  "trigger": "startup:('robot', {'kind': 'STOPPED', 'role': 'robot', 'result': {'reason': 'Control service failed', 'stop': {'body': {'confirmed': True, 'evidence': 'mock mux source readback 0 and fresh stable ideal joint feedback'}, 'chassis': {'confirmed': True, 'evidence': 'zero command and mock State speed readback'}}, 'commands': [], 'receipts': [], 'controller_outputs': {}, 'control_calls': [{'service': '/unified_replay_lab_6f71188813a5/control/ik_request_mux/select', 'time_ns': 24414024526967, 'success': True}], 'session_sha256': '969a11ba5802ba90789f38bdbd891758d941aa766c4f8d2d595958ee1a232001', 'hardware_commands_sent': 0, 'physical_stop_verified': False, 'role': 'robot', 'stop_local_ns': 24414125120829, 'logs': '/home/user/unified_replay_integration/src/unified_replay/integration/runs/6f71188813a5/robot'}})",
+  "stop_confirmed": true,
+  "missing_stop_ack": [],
+  "physical_execution": false,
+  "physical_stop_verified": false,
+  "hardware_commands_sent": 0,
+  "namespace": "/unified_replay_lab_6f71188813a5",
+  "domain": 197,
+  "transport": "SSH stdio robot + local stdio hands; DDS localhost on each host",
+  "plan_sha256": "a77db134a6c2c9da0d2a07624a17b5d6565fc289bea25d3ed3b641673cdbfc60",
+  "session_sha256": "969a11ba5802ba90789f38bdbd891758d941aa766c4f8d2d595958ee1a232001",
+  "clock_mapping": {},
+  "source_payload_order_verified": true,
+  "max_lateness_ns": 0,
+  "max_common_schedule_error_ns": 0,
+  "first_command_spread_ns": null,
+  "limits": [
+    "Ideal robot feedback and mock mux/chassis",
+    "Sharpa real ROS driver with fake actuators",
+    "Native model home initialization is a diagnostic fixture, not recorded-start acceptance",
+    "Physical execution remains disabled"
+  ],
+  "output": "/mnt/apex-data/apex_n_sharpa/data/replay_runs/unified78_validation_1793171077641728617/episode_00000042/controller-1793183840450283988"
+}

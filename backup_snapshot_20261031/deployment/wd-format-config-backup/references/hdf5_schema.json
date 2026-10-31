@@ -1,0 +1,158 @@
+{
+  "images/active_camera/jpeg": {
+    "shape": [
+      677
+    ],
+    "dtype": "object"
+  },
+  "images/active_camera/read_monotonic_ns": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "images/active_camera/sequence": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "images/left/jpeg": {
+    "shape": [
+      677
+    ],
+    "dtype": "object"
+  },
+  "images/left/read_monotonic_ns": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "images/left/sequence": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "images/right/jpeg": {
+    "shape": [
+      677
+    ],
+    "dtype": "object"
+  },
+  "images/right/read_monotonic_ns": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "images/right/sequence": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "observations/active_camera/eef": {
+    "shape": [
+      677,
+      7
+    ],
+    "dtype": "float64"
+  },
+  "observations/active_camera/eef_feedback_monotonic_ns": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "observations/active_camera/feedback_monotonic_ns": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "observations/active_camera/joint_position_deg": {
+    "shape": [
+      677,
+      6
+    ],
+    "dtype": "float64"
+  },
+  "observations/left/eef": {
+    "shape": [
+      677,
+      7
+    ],
+    "dtype": "float64"
+  },
+  "observations/left/eef_feedback_monotonic_ns": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "observations/left/feedback_monotonic_ns": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "observations/left/gripper_width_mm": {
+    "shape": [
+      677
+    ],
+    "dtype": "float64"
+  },
+  "observations/left/joint_position_deg": {
+    "shape": [
+      677,
+      6
+    ],
+    "dtype": "float64"
+  },
+  "observations/right/eef": {
+    "shape": [
+      677,
+      7
+    ],
+    "dtype": "float64"
+  },
+  "observations/right/eef_feedback_monotonic_ns": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "observations/right/feedback_monotonic_ns": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "observations/right/gripper_width_mm": {
+    "shape": [
+      677
+    ],
+    "dtype": "float64"
+  },
+  "observations/right/joint_position_deg": {
+    "shape": [
+      677,
+      6
+    ],
+    "dtype": "float64"
+  },
+  "time/sample_monotonic_ns": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  },
+  "time/scheduled_monotonic_ns": {
+    "shape": [
+      677
+    ],
+    "dtype": "int64"
+  }
+}

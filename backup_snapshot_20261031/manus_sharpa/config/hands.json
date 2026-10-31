@@ -1,0 +1,14 @@
+{
+  "serials": {"left": "CE50903ECE53", "right": "CC50933FCC53"},
+  "robot_ssh": "user@6.6.7.100",
+  "robot_root": "/home/user/manus_sharpa",
+  "local_domain": 198,
+  "robot_domain": 29,
+  "clock_domain": "robot_receive",
+  "max_skew_ms": 50,
+  "command_timeout_s": 0.2,
+  "max_input_age_s": 0.25,
+  "state_rate_hz": 100.0,
+  "speed_coefficient": 0.3,
+  "current_coefficient": 0.6
+}

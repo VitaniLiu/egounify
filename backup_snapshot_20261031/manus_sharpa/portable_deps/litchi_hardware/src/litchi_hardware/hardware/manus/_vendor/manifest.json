@@ -1,0 +1,42 @@
+{
+  "LICENSE.vendor": {
+    "sha256": "a73420cc278cc36b8a6af15f93bf9b611db714cd7318fead772865ed46acc67a",
+    "size": 2206
+  },
+  "NOTICE.vendor": {
+    "sha256": "c6a0beab999cc7be77e74df54da9575215c467c79a45d4a66bc63de7cc2393b7",
+    "size": 9220
+  },
+  "README.md": {
+    "sha256": "cb5c1f2153a034cb5234bed0ae700198ab3bd38a7442330dd2f4661081a37e3d",
+    "size": 590
+  },
+  "bin/SharpaManusClient": {
+    "sha256": "b603f41baa5994984b909e8e08b1e74f772790db1f31b3667666c2c2cc5bed11",
+    "size": 2568672
+  },
+  "config/Calibration_left.mcal": {
+    "sha256": "c41080f00d23e9ec9e4fb91df35bcb599d87f35233d5dea736a91b0a95d99265",
+    "size": 3862
+  },
+  "config/Calibration_right.mcal": {
+    "sha256": "70dc380a0622004f8250050d17fb4709022fd7fe14a4fe9b7d10a03304162566",
+    "size": 3855
+  },
+  "include/ManusSDK.h": {
+    "sha256": "a129cba36be1191cfc3c2fd5f049414cc4fd8939a35675216c6d26a0f4238116",
+    "size": 74973
+  },
+  "include/ManusSDKTypeInitializers.h": {
+    "sha256": "4e9c6607138ece3351eaf072634920ba1b16bde89483151c50700713745062e9",
+    "size": 13983
+  },
+  "include/ManusSDKTypes.h": {
+    "sha256": "59584fc0d168afe3bd96d1b13b6f6f0e1d38a3d869a4b17740b1d0799c306c08",
+    "size": 61508
+  },
+  "lib/libManusSDK_Integrated.so": {
+    "sha256": "230383fcfc5e0aef7760e104dbff42f9f59c193cc1bdcafd6b78f5e7a51c6abb",
+    "size": 107878592
+  }
+}

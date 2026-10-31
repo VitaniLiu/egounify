@@ -1,0 +1,48 @@
+[project]
+name = "litchi-hardware"
+version = "0.1.6"
+description = "Reusable, ROS-independent hardware abstraction for Litchi robots"
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+dependencies = []
+
+[project.optional-dependencies]
+manus = ["protobuf>=4.21", "pyzmq>=25"]
+sharpa = ["numpy>=1.26,<3"]
+xynova = []
+linker = ["numpy>=1.26,<3", "python-can>=4.3,<5", "PyYAML>=6"]
+all = [
+    "numpy>=1.26,<3",
+    "protobuf>=4.21",
+    "pyzmq>=25",
+    "python-can>=4.3,<5",
+    "PyYAML>=6",
+]
+dev = [
+    "pre-commit>=4,<5",
+    "pytest>=8,<9",
+    "ruff>=0.15.9,<0.16",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/litchi_hardware"]
+artifacts = ["src/litchi_hardware/hardware/**/_vendor/**"]
+
+[tool.hatch.build.hooks.custom]
+path = "hatch_build.py"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+extend-exclude = ["src/litchi_hardware/hardware/**/_vendor"]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

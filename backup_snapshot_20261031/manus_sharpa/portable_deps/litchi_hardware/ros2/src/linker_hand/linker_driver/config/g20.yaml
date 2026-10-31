@@ -1,0 +1,13 @@
+params:
+  model: G20
+  transport: socketcan
+  channel: can0
+  bitrate: 1000000
+  auto_setup_can: false
+  initial_speed: []
+  enable_tactile: false
+  verify_identity: true
+  state_publish_hz: 100.0
+  tactile_publish_hz: 20.0
+
+joint_calibration: {}

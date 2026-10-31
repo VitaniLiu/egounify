@@ -1,0 +1,254 @@
+{
+  "status": "OFFLINE_CHECKS_PASS_HARDWARE_NOT_VERIFIED",
+  "source_sha256": "18ba9557fb8219dfedb028c859dada5474eadfa6af587c8860d727cb965dfd7c",
+  "profile_id": "50f20c5b-8984-11f1-8001-003059389685",
+  "profile_name": "Sharpa",
+  "device_id": "ee-no-gripper",
+  "source_declares_units": false,
+  "source_declares_reference_frame": false,
+  "source_declares_hand_serial": false,
+  "assigned_arm": null,
+  "checks": {
+    "finite_values": true,
+    "positive_mass": true,
+    "symmetric_inertia": true,
+    "positive_definite_inertia": true,
+    "rigid_body_triangle_consistency": true
+  },
+  "calculation_assumptions": {
+    "mass": "kg",
+    "center_of_mass": "m",
+    "inertia": "kg*m^2 about COM, axes parallel to profile frame",
+    "g_m_s2": 9.80665,
+    "reference_origin": "profile frame; NOT verified robot flange"
+  },
+  "mass_kg_assuming_SI": 1.4646,
+  "center_of_mass_m_assuming_SI": [
+    0.016,
+    0.008,
+    0.092
+  ],
+  "inertia_kg_m2_assuming_SI": [
+    [
+      0.001,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.001,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.001
+    ]
+  ],
+  "tcp_from_source": {
+    "rotation": {
+      "pitch": 0,
+      "roll": 0,
+      "yaw": 0
+    },
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "weight_N_assuming_SI": 14.362819589999999,
+  "maximum_gravity_moment_Nm_assuming_SI": 1.3461264845748389,
+  "orientation_cases": [
+    {
+      "gravity_direction_in_profile_frame": "-x",
+      "gravity_force_N": [
+        -14.362819589999999,
+        0.0,
+        0.0
+      ],
+      "gravity_moment_at_origin_Nm": [
+        0.0,
+        -1.3213794022799998,
+        0.11490255672
+      ],
+      "compensating_force_N": [
+        14.362819589999999,
+        -0.0,
+        -0.0
+      ],
+      "compensating_moment_Nm": [
+        -0.0,
+        1.3213794022799998,
+        -0.11490255672
+      ]
+    },
+    {
+      "gravity_direction_in_profile_frame": "+x",
+      "gravity_force_N": [
+        14.362819589999999,
+        0.0,
+        0.0
+      ],
+      "gravity_moment_at_origin_Nm": [
+        0.0,
+        1.3213794022799998,
+        -0.11490255672
+      ],
+      "compensating_force_N": [
+        -14.362819589999999,
+        -0.0,
+        -0.0
+      ],
+      "compensating_moment_Nm": [
+        -0.0,
+        -1.3213794022799998,
+        0.11490255672
+      ]
+    },
+    {
+      "gravity_direction_in_profile_frame": "-y",
+      "gravity_force_N": [
+        0.0,
+        -14.362819589999999,
+        0.0
+      ],
+      "gravity_moment_at_origin_Nm": [
+        1.3213794022799998,
+        0.0,
+        -0.22980511344
+      ],
+      "compensating_force_N": [
+        -0.0,
+        14.362819589999999,
+        -0.0
+      ],
+      "compensating_moment_Nm": [
+        -1.3213794022799998,
+        -0.0,
+        0.22980511344
+      ]
+    },
+    {
+      "gravity_direction_in_profile_frame": "+y",
+      "gravity_force_N": [
+        0.0,
+        14.362819589999999,
+        0.0
+      ],
+      "gravity_moment_at_origin_Nm": [
+        -1.3213794022799998,
+        0.0,
+        0.22980511344
+      ],
+      "compensating_force_N": [
+        -0.0,
+        -14.362819589999999,
+        -0.0
+      ],
+      "compensating_moment_Nm": [
+        1.3213794022799998,
+        -0.0,
+        -0.22980511344
+      ]
+    },
+    {
+      "gravity_direction_in_profile_frame": "-z",
+      "gravity_force_N": [
+        0.0,
+        0.0,
+        -14.362819589999999
+      ],
+      "gravity_moment_at_origin_Nm": [
+        -0.11490255672,
+        0.22980511344,
+        0.0
+      ],
+      "compensating_force_N": [
+        -0.0,
+        -0.0,
+        14.362819589999999
+      ],
+      "compensating_moment_Nm": [
+        0.11490255672,
+        -0.22980511344,
+        -0.0
+      ]
+    },
+    {
+      "gravity_direction_in_profile_frame": "+z",
+      "gravity_force_N": [
+        0.0,
+        0.0,
+        14.362819589999999
+      ],
+      "gravity_moment_at_origin_Nm": [
+        0.11490255672,
+        -0.22980511344,
+        0.0
+      ],
+      "compensating_force_N": [
+        -0.0,
+        -0.0,
+        -14.362819589999999
+      ],
+      "compensating_moment_Nm": [
+        -0.11490255672,
+        0.22980511344,
+        -0.0
+      ]
+    }
+  ],
+  "sdk_order": [
+    "mass",
+    "com_x",
+    "com_y",
+    "com_z",
+    "Ixx",
+    "Ixy",
+    "Ixz",
+    "Iyy",
+    "Iyz",
+    "Izz"
+  ],
+  "conditional_toolD_if_SI_profile_and_SDK_kg_mm_kg_m2_and_aligned_frames": [
+    1.4646,
+    16.0,
+    8.0,
+    92.0,
+    0.001,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.001
+  ],
+  "not_for_application": true,
+  "blockers": [
+    "Confirm profile units and frame definition with exporting software",
+    "Confirm left/right applicability; do not automatically mirror or duplicate",
+    "Confirm installed SDK ToolD units and inertia reference point",
+    "Confirm physical mounting transform",
+    "Read current robot state and backup active configuration before any application"
+  ],
+  "notes": [
+    "TCP zero offset is not evidence that profile and robot flange frames coincide",
+    "Isotropic inertia is mathematically valid but is not proof of measured inertia",
+    "deviceId ee-no-gripper is metadata, not a request to change hardware type",
+    "Joint gravity torques require the robot Jacobian and live joint pose; no static joint torque vector generated"
+  ],
+  "comparison_to_previous_official_flange_models": {
+    "arm0": {
+      "old_model_mass_kg": 1.3117649999999998,
+      "profile_mass_increase_kg_assuming_SI": 0.15283500000000005,
+      "mass_increase_percent_assuming_SI": 11.651096042355146,
+      "com_comparison": "Not comparable until frames are matched"
+    },
+    "arm1": {
+      "old_model_mass_kg": 1.3097649999999998,
+      "profile_mass_increase_kg_assuming_SI": 0.15483500000000006,
+      "mass_increase_percent_assuming_SI": 11.821586315102328,
+      "com_comparison": "Not comparable until frames are matched"
+    }
+  }
+}

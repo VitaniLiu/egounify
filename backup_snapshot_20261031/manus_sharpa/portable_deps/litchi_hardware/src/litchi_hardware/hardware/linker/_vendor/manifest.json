@@ -1,0 +1,170 @@
+{
+  "README.md": {
+    "sha256": "3c1f8ddece521f49ded075178881c0a9ae745e5de8e465d7dd54b675ea8d478b",
+    "size": 1025
+  },
+  "legacy/__init__.py": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size": 1
+  },
+  "legacy/config/G20_positions.yaml": {
+    "sha256": "9567bccb64e1ad266fa377f230488cd4f9eada5bdc9ef5852e94c5b9b2898a13",
+    "size": 12254
+  },
+  "legacy/config/L10_positions.yaml": {
+    "sha256": "4e728af8ddd88ee98d57c96d89a9900d4193e2358a61fc3953ee4f9d0231ca6e",
+    "size": 1727
+  },
+  "legacy/config/L20_positions.yaml": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size": 1
+  },
+  "legacy/config/L21_positions.yaml": {
+    "sha256": "dc279f37378bd3d4c0470489461e690ee1c188c77bb656a748421b44d2f51927",
+    "size": 913
+  },
+  "legacy/config/L25_positions.yaml": {
+    "sha256": "83e13e16ba7ac7f43452b3acbe3c2124bdd3e9bca7a012dd33651dd8a5b2dbdc",
+    "size": 699
+  },
+  "legacy/config/L6_positions.yaml": {
+    "sha256": "d91f5c5e0d1793e592945f72f288e2e44c978be03b901794bfb330890f6cda7f",
+    "size": 259
+  },
+  "legacy/config/L7_positions.yaml": {
+    "sha256": "f8bfe9662e99cb23e208e3cb44317fe8ac060e9c623d8e5e670b59cc9a794b42",
+    "size": 281
+  },
+  "legacy/config/O6_positions.yaml": {
+    "sha256": "d91f5c5e0d1793e592945f72f288e2e44c978be03b901794bfb330890f6cda7f",
+    "size": 259
+  },
+  "legacy/config/__init__.py": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size": 1
+  },
+  "legacy/config/setting.yaml": {
+    "sha256": "274eeedee20500826d9d7fd33e626999f18718effc306076605e29fdb2daefc1",
+    "size": 2167
+  },
+  "legacy/core/__init__.py": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size": 1
+  },
+  "legacy/core/can/__init__.py": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size": 1
+  },
+  "legacy/core/can/linker_hand_g20_can.py": {
+    "sha256": "cd611c101fb162ba9f767042617bc322aea5db11f32540921ee0be7ec1260089",
+    "size": 44948
+  },
+  "legacy/core/can/linker_hand_l10_can.py": {
+    "sha256": "6a6d80c4aa7606c558f08bb1d7f45e8b389501243ed1ea98ac83c19af3475583",
+    "size": 22078
+  },
+  "legacy/core/can/linker_hand_l20_can.py": {
+    "sha256": "e0a0b4cd037505a64cf9659427f040666e566b4960728e2aefb419eb51846232",
+    "size": 21040
+  },
+  "legacy/core/can/linker_hand_l21_can.py": {
+    "sha256": "12bd3c5c6442bd4958384fa36ffde8e735f3b1fb0c7fc742a07a5d3f49ea0816",
+    "size": 37228
+  },
+  "legacy/core/can/linker_hand_l24_can.py": {
+    "sha256": "27de01d1db0cf93bcc063dfeb0374477bb9975467153d0ac8843a4336da3f405",
+    "size": 22115
+  },
+  "legacy/core/can/linker_hand_l25_can.py": {
+    "sha256": "5d77b23ebe8a5707aab5c93d246a20e9674bb0668b9f6d3f93bcc5a091567dc1",
+    "size": 42134
+  },
+  "legacy/core/can/linker_hand_l6_can.py": {
+    "sha256": "ea79a3281cba719b96559dc39285f7fc865206b557af89e94fa7c789c40c0c13",
+    "size": 17562
+  },
+  "legacy/core/can/linker_hand_l7_can.py": {
+    "sha256": "6bfaad5b5bf688f4abb4f0185dfab9ce3bc43a4a48130bb786ab88a855135b3f",
+    "size": 17313
+  },
+  "legacy/core/can/linker_hand_o6_can.py": {
+    "sha256": "15d13b5f771b56aa4c45ca6399c5e81343af337475a5fba3a46d61b6af76a6e6",
+    "size": 18428
+  },
+  "legacy/core/rs485/linker_hand_l10_rs485.py": {
+    "sha256": "db3af2029d46ef0d6fc26fd5fa178315a78bfe68da07203a1db0b53ae083b3ac",
+    "size": 12568
+  },
+  "legacy/core/rs485/linker_hand_l6_rs485.py": {
+    "sha256": "4544c3d94d8421dd0b6303d47942c7331bf2923edc19ae83b7b1e3e71663e0e9",
+    "size": 15564
+  },
+  "legacy/core/rs485/linker_hand_l7_rs485.py": {
+    "sha256": "f6ee8c993bd65246a9e7c795c9338601a205124a137ccf15e7742a4ae1679dc9",
+    "size": 16249
+  },
+  "legacy/core/rs485/linker_hand_o6_rs485.py": {
+    "sha256": "8a12bf430c4f54194006b2e1a33d04e6cdf8f536923d31f3fdbb9b1935d7e7c6",
+    "size": 22011
+  },
+  "legacy/linker_hand_api.py": {
+    "sha256": "b41c9792a9c0edadc37d2a6c987ea7497cfd4d336e8955c10afb4caf0d7c29e2",
+    "size": 15572
+  },
+  "legacy/utils/__init__.py": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size": 1
+  },
+  "legacy/utils/color_msg.py": {
+    "sha256": "774d052e528fcd0ee5b469ed0e765bd8b994dc879b7dc0f8e9322e29f582b22a",
+    "size": 871
+  },
+  "legacy/utils/init_linker_hand.py": {
+    "sha256": "a0137830e2e23cb407584945cec29dd55380380e94c5b21294d62579ab7ed262",
+    "size": 7600
+  },
+  "legacy/utils/load_write_yaml.py": {
+    "sha256": "83c4adf70460625743eecfc23a5df383e1e514853e7ce684d99e07c92a93c910",
+    "size": 4828
+  },
+  "legacy/utils/mapping.py": {
+    "sha256": "41528fbd328257ef28b8757bf840a579ac68cfa384697914d79a593ba1545259",
+    "size": 15867
+  },
+  "legacy/utils/open_can.py": {
+    "sha256": "6d14bf499250bac6f8c302f656942351a960a30c6ce77490ef26177d43176f64",
+    "size": 5161
+  },
+  "o30i/HandProtocol_v1.0.pdf": {
+    "sha256": "738d792ef2daabad8e43bc0ad2e0f53ae55fddee168863a1a07e68bf4e703a62",
+    "size": 2301237
+  },
+  "o30i/lib/linux-aarch64/libcanbus.so": {
+    "sha256": "ffbe42be6ffb4c10e7ab4c9cda3e66da417f066ea6f2446da00df1aff0da275b",
+    "size": 44672
+  },
+  "o30i/lib/linux-armv7l/libcanbus.so": {
+    "sha256": "221ae632201f343d2b2d2db6da67de14cae592b286aae943b20345fda40b3d1a",
+    "size": 36272
+  },
+  "o30i/lib/linux-x86_64-ubuntu20/libcanbus.so": {
+    "sha256": "a5448a9e4b37bb888e4ecceafe26241262a1fabfc572ba3a67b20aa8c616e6ad",
+    "size": 48520
+  },
+  "o30i/lib/linux-x86_64-ubuntu22/libcanbus.so": {
+    "sha256": "6c7100a10415cbbde08d42d895ccdf4c9b680badf1f04e3322458037d320c543",
+    "size": 47888
+  },
+  "o30i/linker_hand_o30i_control.py": {
+    "sha256": "f22fd051e8a5a47cc330d91e07971b30eff16d9034f320dd977543c52f292c73",
+    "size": 73976
+  },
+  "o30i/udev/99-canfd.rules": {
+    "sha256": "45c2c2a30b0e693009ba58cf95b2e9d8bd16b653c5035b8b6e3078292b183d70",
+    "size": 129
+  },
+  "o30i/udev/99-double-canfd.rules": {
+    "sha256": "6bec2b342a9cdce44dce2ae6020e534ed0a395d0140477c7f6d9793b2c569f3a",
+    "size": 441
+  }
+}

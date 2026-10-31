@@ -1,0 +1,13 @@
+{
+  "fake": true,
+  "session_id": "c818626db1ef4a96b1d1da1f2f2b102f",
+  "event_count": 528,
+  "streams": [
+    "left/accepted",
+    "left/state",
+    "right/accepted",
+    "right/state"
+  ],
+  "error": "Hand action stream stopped; restart required",
+  "robot_control_commands_sent": 0
+}

@@ -1,0 +1,42 @@
+{
+  "version": "egoav_78d_training11_20261021_v1",
+  "columns": [
+    "observation.state",
+    "action",
+    "validity",
+    "observation.images.head_color",
+    "observation.images.left_wrist_camera",
+    "observation.images.right_wrist_camera",
+    "timestamp",
+    "frame_index",
+    "episode_index",
+    "index",
+    "task_index"
+  ],
+  "source_columns": [
+    "observation.state",
+    "action",
+    "validity",
+    "observation.images.head_color",
+    "observation.images.left_wrist_camera",
+    "observation.images.right_wrist_camera",
+    "timestamp",
+    "frame_index",
+    "episode_index",
+    "index",
+    "task_index"
+  ],
+  "removed_columns": [],
+  "backup": "/mnt/data/users/haoran/workspace/data/egoav_78d_with_aux_20261021/g2/yifu",
+  "image_bytes_unchanged": true,
+  "numeric_values_unchanged": true,
+  "camera_assignment": "Franka/UR cam0=head, cam1=left_wrist, cam2=right_wrist by user convention, not independently physically verified; 3B active camera=head",
+  "image_resolution_policy": "Native resolution unchanged; feature metadata consistently CHW; resize only in training loader",
+  "state_action_units": "Existing units unchanged; UR hand angles remain SDK nominal-radian mapping, not physically calibrated",
+  "validity": "Same 78D structural mask, not a quality/calibration flag; trainer must explicitly use mask",
+  "sample_export": {
+    "source": "b_dev:/mnt/data/users/haoran/workspace/data/egoav_78d/g2/yifu",
+    "source_episode": 0,
+    "parquet_unchanged": true
+  }
+}

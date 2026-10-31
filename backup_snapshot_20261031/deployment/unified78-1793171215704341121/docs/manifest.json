@@ -1,0 +1,22 @@
+[
+  {
+    "target": "/home/descfly/apex_n_sharpa/docs/录制启动流程与转换匹配检查.md",
+    "sha256": "9f6f3cfe77cf7c0011306e4c63d758e3f574274fdd2ac2c9eefaf8dcbb46d43b"
+  },
+  {
+    "target": "/home/descfly/apex_n_sharpa/docs/Apex同步数采与76维转换操作说明.md",
+    "sha256": "8e388c14851f36afd2467de9a5f6258679a578eec535fc98fe48bb858d32fd83"
+  },
+  {
+    "target": "/home/descfly/apex_n_sharpa/docs/统一78维转换实施与使用说明.md",
+    "sha256": "9620aff0251832ec2d4917ff2836bc15bcfe4dc8e28d9ad5430996af0e52716d"
+  },
+  {
+    "target": "/home/descfly/apex_n_sharpa/docs/README.md",
+    "sha256": "55dc1798e2bec49929d235407b6370989543aae5e6e6c960703f2f812a792763"
+  },
+  {
+    "target": "/home/descfly/apex_n_sharpa/docs/统一78维转换验收.json",
+    "sha256": "5f2a41df3cfdc6d505eabdffd0eaf6e836e906ebfd67e5f831f2818140957011"
+  }
+]

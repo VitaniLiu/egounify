@@ -1,0 +1,4 @@
+# MANUS Sensor Dongle observed on real (3325:0049).
+# descfly is already a member of plugdev.
+SUBSYSTEM=="usb", ATTR{idVendor}=="3325", ATTR{idProduct}=="0049", GROUP="plugdev", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3325", ATTRS{idProduct}=="0049", GROUP="plugdev", MODE="0660", TAG+="uaccess"

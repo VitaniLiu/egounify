@@ -1,0 +1,11 @@
+# SCM syntax highlighting & preventing 3-way merges
+pixi.lock merge=binary linguist-language=YAML linguist-generated=true -diff
+
+# Proprietary vendor runtime assets are large and are distributed only through
+# the organization's private repository / wheel index.
+src/litchi_hardware/hardware/**/_vendor/**/*.so* filter=lfs diff=lfs merge=lfs -text
+src/litchi_hardware/hardware/xynova/arm/_vendor/**/*.a filter=lfs diff=lfs merge=lfs -text
+src/litchi_hardware/hardware/xynova/arm/_native/lib/*.so filter=lfs diff=lfs merge=lfs -text
+src/litchi_hardware/hardware/**/_vendor/**/pilot_sdk filter=lfs diff=lfs merge=lfs -text
+src/litchi_hardware/hardware/**/_vendor/**/bin/* filter=lfs diff=lfs merge=lfs -text
+src/litchi_hardware/hardware/manus/_native/lib/*.so filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,22 @@
+{
+  "/mnt/apex-data/apex_n_sharpa/manus_sharpa/recording/bridge.py": {
+    "sha256": "313cb2717a9e7d1cb72d5e6970a25c992a8e61000809bac7fba2c694913c9b31",
+    "backup": "/mnt/apex-data/apex_n_sharpa/manus_sharpa/backups/record-sync-1793164326893337352/recording/bridge.py"
+  },
+  "/mnt/apex-data/apex_n_sharpa/manus_sharpa/recording/robot_receiver.py": {
+    "sha256": "e9ff3af26ab4fdf55501fd7831f012c17df03aeceff19953e54afaae38113587",
+    "backup": "/mnt/apex-data/apex_n_sharpa/manus_sharpa/backups/record-sync-1793164326893337352/recording/robot_receiver.py"
+  },
+  "/mnt/apex-data/apex_n_sharpa/manus_sharpa/conversion/capture.py": {
+    "sha256": "f27ec39d154ec831c11a2818459d067eceb5d1b7ee5d1135442762a48305dfb6",
+    "backup": null
+  },
+  "/mnt/apex-data/apex_n_sharpa/manus_sharpa/conversion/capture_contract.py": {
+    "sha256": "e34d85b15e470c7db50e26f1514f23e3b4519d2c8a4483c8fc3aba773d51d75c",
+    "backup": null
+  },
+  "/mnt/apex-data/apex_n_sharpa/manus_sharpa/portable_deps/litchi_hardware/src/litchi_hardware/hardware/sharpa/sdk_driver.py": {
+    "sha256": "93c3817e6914735589ec10693707a237cc63216323a889b9834ca20cc6234bd1",
+    "backup": "/mnt/apex-data/apex_n_sharpa/manus_sharpa/backups/record-sync-1793164326893337352/vendor/sdk_driver.py"
+  }
+}

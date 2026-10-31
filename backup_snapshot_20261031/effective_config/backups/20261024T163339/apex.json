@@ -1,0 +1,96 @@
+{
+  "fps": 20,
+  "clock_domain": "robot_receive",
+  "streams": {
+    "observations/left": {
+      "topic": "/tj/info/eef_left",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "state"
+    },
+    "actions/left": {
+      "topic": "/tj/control/target_poseL",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action"
+    },
+    "observations/right": {
+      "topic": "/tj/info/eef_right",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "state"
+    },
+    "actions/right": {
+      "topic": "/tj/control/target_poseR",
+      "field": "pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "action"
+    },
+    "actions/active_camera": {
+      "topic": "/tj/control/vr_body",
+      "field": "head_pose",
+      "kind": "pose",
+      "frame": "tracking_base_link",
+      "unit": "m",
+      "clock": "log",
+      "required": true,
+      "source_role": "action"
+    },
+    "observations/chassis": {
+      "topic": "/recording/chassis/state",
+      "kind": "vector",
+      "fields": [
+        "speed.linear.x",
+        "speed.linear.y",
+        "speed.angular.z"
+      ],
+      "unit": "m/s,m/s,rad/s",
+      "clock": "log",
+      "source_role": "state"
+    },
+    "actions/chassis": {
+      "topic": "/recording/gamepad/command",
+      "kind": "vector",
+      "fields": [
+        "twist.linear.x",
+        "twist.linear.y",
+        "twist.angular.z"
+      ],
+      "unit": "m/s,m/s,rad/s",
+      "clock": "log",
+      "source_role": "action"
+    },
+    "images/quad": {
+      "topic": "/recorder/quad_tile/compressed_undistorted",
+      "field": "data",
+      "kind": "image",
+      "clock": "log"
+    },
+    "observations/active_camera": {
+      "topic": "/tj/joint_states",
+      "kind": "pose",
+      "frame": "base_link",
+      "unit": "m",
+      "clock": "log",
+      "source_role": "state",
+      "fk": {
+        "model": "/mnt/apex-data/apex_n_sharpa/data/raw_data/robot_configuration/robot_import_20261024/opt/kernelmind/apex/install/marvin_description/share/marvin_description/mjcf/Gento_Sky/Gento_Sky.xml",
+        "sha256": "c34f0ad10ee6f7635e4c4120da38cefdd2ca22f5c0cce0f878b8b891c8996b58",
+        "root": "base_link",
+        "target": "eyes_link"
+      }
+    }
+  }
+}
