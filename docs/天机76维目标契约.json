@@ -1,0 +1,299 @@
+{
+  "schema": "tianji_manus_sharpa_76_target_v1",
+  "status": "target_contract_exporter_not_implemented",
+  "dimension": 76,
+  "fps": 20,
+  "clock_domain": "robot_receive",
+  "timestamp_dtype": "int64",
+  "timestamp_unit": "ns",
+  "coordinate_frame": "base_link",
+  "serials": {
+    "left": "CE50903ECE53",
+    "right": "CC50933FCC53"
+  },
+  "feature_names": [
+    "left_eef_x",
+    "left_eef_y",
+    "left_eef_z",
+    "left_eef_r1x",
+    "left_eef_r1y",
+    "left_eef_r1z",
+    "left_eef_r2x",
+    "left_eef_r2y",
+    "left_eef_r2z",
+    "right_eef_x",
+    "right_eef_y",
+    "right_eef_z",
+    "right_eef_r1x",
+    "right_eef_r1y",
+    "right_eef_r1z",
+    "right_eef_r2x",
+    "right_eef_r2y",
+    "right_eef_r2z",
+    "head_eef_x",
+    "head_eef_y",
+    "head_eef_z",
+    "head_eef_r1x",
+    "head_eef_r1y",
+    "head_eef_r1z",
+    "head_eef_r2x",
+    "head_eef_r2y",
+    "head_eef_r2z",
+    "waist_joint_1",
+    "waist_joint_2",
+    "waist_joint_3",
+    "Head_J1_Joint",
+    "Head_J2_Joint",
+    "left_hand_thumb_CMC_FE",
+    "left_hand_thumb_CMC_AA",
+    "left_hand_thumb_MCP_FE",
+    "left_hand_thumb_MCP_AA",
+    "left_hand_thumb_IP",
+    "left_hand_index_MCP_FE",
+    "left_hand_index_MCP_AA",
+    "left_hand_index_PIP",
+    "left_hand_index_DIP",
+    "left_hand_middle_MCP_FE",
+    "left_hand_middle_MCP_AA",
+    "left_hand_middle_PIP",
+    "left_hand_middle_DIP",
+    "left_hand_ring_MCP_FE",
+    "left_hand_ring_MCP_AA",
+    "left_hand_ring_PIP",
+    "left_hand_ring_DIP",
+    "left_hand_pinky_CMC",
+    "left_hand_pinky_MCP_FE",
+    "left_hand_pinky_MCP_AA",
+    "left_hand_pinky_PIP",
+    "left_hand_pinky_DIP",
+    "right_hand_thumb_CMC_FE",
+    "right_hand_thumb_CMC_AA",
+    "right_hand_thumb_MCP_FE",
+    "right_hand_thumb_MCP_AA",
+    "right_hand_thumb_IP",
+    "right_hand_index_MCP_FE",
+    "right_hand_index_MCP_AA",
+    "right_hand_index_PIP",
+    "right_hand_index_DIP",
+    "right_hand_middle_MCP_FE",
+    "right_hand_middle_MCP_AA",
+    "right_hand_middle_PIP",
+    "right_hand_middle_DIP",
+    "right_hand_ring_MCP_FE",
+    "right_hand_ring_MCP_AA",
+    "right_hand_ring_PIP",
+    "right_hand_ring_DIP",
+    "right_hand_pinky_CMC",
+    "right_hand_pinky_MCP_FE",
+    "right_hand_pinky_MCP_AA",
+    "right_hand_pinky_PIP",
+    "right_hand_pinky_DIP"
+  ],
+  "feature_units": [
+    "m",
+    "m",
+    "m",
+    "unitless",
+    "unitless",
+    "unitless",
+    "unitless",
+    "unitless",
+    "unitless",
+    "m",
+    "m",
+    "m",
+    "unitless",
+    "unitless",
+    "unitless",
+    "unitless",
+    "unitless",
+    "unitless",
+    "m",
+    "m",
+    "m",
+    "unitless",
+    "unitless",
+    "unitless",
+    "unitless",
+    "unitless",
+    "unitless",
+    "m",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad",
+    "rad"
+  ],
+  "features": {
+    "observation.state": {
+      "dtype": "float32",
+      "shape": [
+        76
+      ]
+    },
+    "action": {
+      "dtype": "float32",
+      "shape": [
+        76
+      ]
+    },
+    "validity": {
+      "dtype": "uint8",
+      "shape": [
+        76
+      ],
+      "meaning": "structural_validity_not_confidence"
+    }
+  },
+  "blocks": {
+    "left_eef": [
+      0,
+      9
+    ],
+    "right_eef": [
+      9,
+      18
+    ],
+    "head_eef": [
+      18,
+      27
+    ],
+    "body_joints": [
+      27,
+      32
+    ],
+    "left_hand": [
+      32,
+      54
+    ],
+    "right_hand": [
+      54,
+      76
+    ]
+  },
+  "hand_joint_names": [
+    "thumb_CMC_FE",
+    "thumb_CMC_AA",
+    "thumb_MCP_FE",
+    "thumb_MCP_AA",
+    "thumb_IP",
+    "index_MCP_FE",
+    "index_MCP_AA",
+    "index_PIP",
+    "index_DIP",
+    "middle_MCP_FE",
+    "middle_MCP_AA",
+    "middle_PIP",
+    "middle_DIP",
+    "ring_MCP_FE",
+    "ring_MCP_AA",
+    "ring_PIP",
+    "ring_DIP",
+    "pinky_CMC",
+    "pinky_MCP_FE",
+    "pinky_MCP_AA",
+    "pinky_PIP",
+    "pinky_DIP"
+  ],
+  "body_sources": [
+    {
+      "name": "waist_joint_1",
+      "state": "observation.body_joints[0]",
+      "action": "action.body_controller[0]"
+    },
+    {
+      "name": "waist_joint_2",
+      "state": "observation.body_joints[1]",
+      "action": "action.body_controller[1]"
+    },
+    {
+      "name": "waist_joint_3",
+      "state": "observation.body_joints[2]",
+      "action": "action.body_controller[2]"
+    },
+    {
+      "name": "Head_J1_Joint",
+      "state": "observation.body_joints[3]",
+      "action": "action.head_controller[0]"
+    },
+    {
+      "name": "Head_J2_Joint",
+      "state": "observation.body_joints[4]",
+      "action": "action.head_controller[1]"
+    }
+  ],
+  "hand_alignment": {
+    "state": "nearest_feedback",
+    "action": "latest_sdk_accepted_at_or_before_grid",
+    "maximum_error_ns": 50000000
+  },
+  "missing_policy": "reject_complete_training_sample; never fabricate measured values",
+  "required_auxiliary_data": [
+    "source_timestamp_ns",
+    "capture_id",
+    "source_session_id",
+    "hand_context",
+    "native_ik",
+    "native_body",
+    "native_chassis",
+    "native_hand_targets",
+    "images",
+    "completion_hashes"
+  ],
+  "legacy78": {
+    "deleted_indices": [
+      54,
+      77
+    ],
+    "body_slots_must_be_filled_from_real_auxiliary_columns": [
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+  }
+}
