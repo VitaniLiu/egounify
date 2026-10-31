@@ -1,0 +1,312 @@
+{
+  "fps": 20,
+  "max_skew_ms": 50,
+  "min_frames": 2,
+  "frame_transforms": {
+    "tracking_base_link": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "allow_missing": [],
+  "head_ee_definition": "eyes_link",
+  "profile": "apex_sharpa_78",
+  "extra_streams": {
+    "observation.body_joints": {
+      "path": "observations/body_joints",
+      "names": [
+        "waist_joint_1",
+        "waist_joint_2",
+        "waist_joint_3",
+        "Head_J1_Joint",
+        "Head_J2_Joint"
+      ],
+      "source_stage": "measured_feedback"
+    },
+    "action.body_controller": {
+      "path": "actions/body_controller",
+      "names": [
+        "waist_joint_1",
+        "waist_joint_2",
+        "waist_joint_3"
+      ],
+      "source_stage": "controller_output"
+    },
+    "action.head_controller": {
+      "path": "actions/head_controller",
+      "names": [
+        "Head_J1_Joint",
+        "Head_J2_Joint"
+      ],
+      "source_stage": "controller_output"
+    },
+    "action.vr_torso": {
+      "path": "actions/torso",
+      "names": [
+        "torso_x",
+        "torso_y",
+        "torso_z",
+        "torso_r1x",
+        "torso_r1y",
+        "torso_r1z",
+        "torso_r2x",
+        "torso_r2y",
+        "torso_r2z"
+      ],
+      "source_stage": "vr_retargeted"
+    },
+    "action.vr_pelvis": {
+      "path": "actions/pelvis",
+      "names": [
+        "pelvis_x",
+        "pelvis_y",
+        "pelvis_z",
+        "pelvis_r1x",
+        "pelvis_r1y",
+        "pelvis_r1z",
+        "pelvis_r2x",
+        "pelvis_r2y",
+        "pelvis_r2z"
+      ],
+      "source_stage": "vr_retargeted"
+    },
+    "action.ik_left": {
+      "path": "actions/ik_left",
+      "names": [
+        "x",
+        "y",
+        "z",
+        "r1x",
+        "r1y",
+        "r1z",
+        "r2x",
+        "r2y",
+        "r2z"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_right": {
+      "path": "actions/ik_right",
+      "names": [
+        "x",
+        "y",
+        "z",
+        "r1x",
+        "r1y",
+        "r1z",
+        "r2x",
+        "r2y",
+        "r2z"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_available": {
+      "path": "actions/ik_available",
+      "names": [
+        "left_hand",
+        "right_hand",
+        "left_elbow",
+        "right_elbow",
+        "torso",
+        "head",
+        "pelvis",
+        "left_foot",
+        "right_foot",
+        "left_knee",
+        "right_knee"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_left_elbow": {
+      "path": "actions/ik_left_elbow",
+      "names": [
+        "x",
+        "y",
+        "z",
+        "r1x",
+        "r1y",
+        "r1z",
+        "r2x",
+        "r2y",
+        "r2z"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_right_elbow": {
+      "path": "actions/ik_right_elbow",
+      "names": [
+        "x",
+        "y",
+        "z",
+        "r1x",
+        "r1y",
+        "r1z",
+        "r2x",
+        "r2y",
+        "r2z"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_torso": {
+      "path": "actions/ik_torso",
+      "names": [
+        "x",
+        "y",
+        "z",
+        "r1x",
+        "r1y",
+        "r1z",
+        "r2x",
+        "r2y",
+        "r2z"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_head": {
+      "path": "actions/ik_head",
+      "names": [
+        "x",
+        "y",
+        "z",
+        "r1x",
+        "r1y",
+        "r1z",
+        "r2x",
+        "r2y",
+        "r2z"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_pelvis": {
+      "path": "actions/ik_pelvis",
+      "names": [
+        "x",
+        "y",
+        "z",
+        "r1x",
+        "r1y",
+        "r1z",
+        "r2x",
+        "r2y",
+        "r2z"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_left_foot": {
+      "path": "actions/ik_left_foot",
+      "names": [
+        "x",
+        "y",
+        "z",
+        "r1x",
+        "r1y",
+        "r1z",
+        "r2x",
+        "r2y",
+        "r2z"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_right_foot": {
+      "path": "actions/ik_right_foot",
+      "names": [
+        "x",
+        "y",
+        "z",
+        "r1x",
+        "r1y",
+        "r1z",
+        "r2x",
+        "r2y",
+        "r2z"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_left_knee": {
+      "path": "actions/ik_left_knee",
+      "names": [
+        "x",
+        "y",
+        "z",
+        "r1x",
+        "r1y",
+        "r1z",
+        "r2x",
+        "r2y",
+        "r2z"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_right_knee": {
+      "path": "actions/ik_right_knee",
+      "names": [
+        "x",
+        "y",
+        "z",
+        "r1x",
+        "r1y",
+        "r1z",
+        "r2x",
+        "r2y",
+        "r2z"
+      ],
+      "source_stage": "ik_input"
+    },
+    "action.ik_joint_positions": {
+      "path": "actions/ik_joint_positions",
+      "names": [
+        "position_0",
+        "position_1",
+        "position_2",
+        "position_3",
+        "position_4",
+        "position_5",
+        "position_6",
+        "position_7",
+        "position_8",
+        "position_9",
+        "position_10",
+        "position_11",
+        "position_12",
+        "position_13",
+        "position_14",
+        "position_15",
+        "position_16",
+        "position_17",
+        "position_18"
+      ],
+      "source_stage": "ik_input"
+    }
+  },
+  "output_frame": "base_link",
+  "task_text": "robot_import_20261024",
+  "embodiment": "G2",
+  "uncollected_fields": [
+    "left_hand",
+    "right_hand",
+    "left_gripper",
+    "right_gripper"
+  ]
+}

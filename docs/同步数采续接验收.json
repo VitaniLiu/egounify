@@ -1,0 +1,139 @@
+{
+  "schema": "apex_record_sync_resume_acceptance_v1",
+  "date": "2026-10-28",
+  "timezone": "Asia/Shanghai",
+  "status": "software_deployed_hardware_acceptance_pending",
+  "unit_tests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "hand_isolation": {
+    "state": "PASS",
+    "domain": 199,
+    "root": "/home/user/apex_record_sync/validation/1793167500708650364",
+    "complete_bag": "/home/user/apex_record_sync/validation/1793167500708650364/raw/isolated_sync",
+    "verified_hand_samples": 360,
+    "fault_capture_state": "FAILED",
+    "checks": [
+      "native MCAP start/stop",
+      "same-bag evidence",
+      "capture integrity hashes",
+      "diagnostic rejection in production",
+      "source dropout auto-stop",
+      "stale start rejection"
+    ],
+    "hardware_initialized": false,
+    "motion_services_started": false,
+    "feed_errors": []
+  },
+  "full_numerical_isolation": {
+    "state": "PASS",
+    "domain": 199,
+    "root": "/home/user/apex_record_sync/validation/1793167793784678757",
+    "complete_bag": "/home/user/apex_record_sync/validation/1793167793784678757/raw/isolated_sync",
+    "verified_hand_samples": 356,
+    "fault_capture_state": "FAILED",
+    "checks": [
+      "native MCAP start/stop",
+      "same-bag evidence",
+      "capture integrity hashes",
+      "diagnostic rejection in production",
+      "source dropout auto-stop",
+      "stale start rejection"
+    ],
+    "hardware_initialized": false,
+    "motion_services_started": false,
+    "feed_errors": [],
+    "profile": "full_numerical_synthetic_camera_disabled",
+    "required_topics": [
+      "/tj/joint_states",
+      "/tj/info/eef_left",
+      "/tj/info/eef_right",
+      "/tj/control/target_poseL",
+      "/tj/control/target_poseR",
+      "/tj/control/vr_body",
+      "/tj/control/ik_request",
+      "/tj/control/joint_cmd_body",
+      "/tj/control/joint_cmd_head",
+      "/recording/chassis/state",
+      "/recording/chassis/manual_move_cmd",
+      "/hand_left/joint_states",
+      "/hand_right/joint_states",
+      "/hand_left/joint_commands",
+      "/hand_right/joint_commands",
+      "/recording/sharpa/context"
+    ],
+    "stream_counts": {
+      "/tj/joint_states": 89,
+      "/tj/info/eef_left": 89,
+      "/tj/info/eef_right": 89,
+      "/tj/control/target_poseL": 89,
+      "/tj/control/target_poseR": 89,
+      "/tj/control/vr_body": 89,
+      "/tj/control/ik_request": 90,
+      "/tj/control/joint_cmd_body": 89,
+      "/tj/control/joint_cmd_head": 89,
+      "/recording/chassis/state": 90,
+      "/recording/chassis/manual_move_cmd": 90,
+      "/hand_left/joint_states": 89,
+      "/hand_right/joint_states": 89,
+      "/hand_left/joint_commands": 89,
+      "/hand_right/joint_commands": 89,
+      "/recording/sharpa/context": 356
+    }
+  },
+  "extraction": {
+    "state": "PASS",
+    "diagnostic_rejected_by_default": true,
+    "diagnostic_extraction": true,
+    "raw": "/mnt/apex-data/apex_n_sharpa/manus_sharpa/data/resume-sync-validation-1793167779554639669/raw",
+    "hdf5": "/mnt/apex-data/apex_n_sharpa/manus_sharpa/data/resume-sync-validation-1793167779554639669/hands.hdf5"
+  },
+  "deployment": {
+    "backup": "/home/user/apex_record_sync/backups/resume-1793167499205926180",
+    "files": {
+      "contract.py": {
+        "before": "e0e47ea126b420a9be1a67b276cc2844f275210272fbe9eb5203043b4809acf4",
+        "after": "e0e47ea126b420a9be1a67b276cc2844f275210272fbe9eb5203043b4809acf4"
+      },
+      "record_node.py": {
+        "before": "b6c425be44ef9c64c8f962784a5344242d52606098fd6ae7c877fb72c0eecd42",
+        "after": "b6c425be44ef9c64c8f962784a5344242d52606098fd6ae7c877fb72c0eecd42"
+      },
+      "audit.py": {
+        "before": "e37086ace5cfd656015a886dd565db21a2011a855a641aa72faddfe07a77c19a",
+        "after": "092cca4ab0483c252924be8ca5f31a0665f027da721b0da6131ec88d8fe3bead"
+      },
+      "test_contract.py": {
+        "before": "61292305758bdac8ad2c746533d5ecb70461cc75053de34e5fa775f31f80733f",
+        "after": "0bd86eadde4cb1de88304311a2f0bf035ab9848c6db343611655cdb183dcf835"
+      }
+    },
+    "motion_services_started": false
+  },
+  "production_service_state": "apex-teleop inactive; applies on next normal startup",
+  "remaining": [
+    "real body + hands + camera acceptance",
+    "certified Raw to unified LeRobot76 exporter",
+    "joint body/hand replay scheduler"
+  ],
+  "local_review_sources": ".record_sync_review/robot",
+  "fixes": [
+    "stop marker exceptions still issue native stop",
+    "native stop failure retains transaction and watchdog retries",
+    "completion write failure cannot certify success",
+    "fresh stopped camera and drained writer status required",
+    "camera interior gaps audited"
+  ],
+  "files": {
+    "audit.py": "092cca4ab0483c252924be8ca5f31a0665f027da721b0da6131ec88d8fe3bead",
+    "check_types.py": "b669862e7b63f573c43f37dd451c4b4d9820e631f6e4a1b7aaef5ccdf8e378ae",
+    "record_node.py": "b6c425be44ef9c64c8f962784a5344242d52606098fd6ae7c877fb72c0eecd42",
+    "validate_full_profile.py": "41398b97099cfb729bb3bdb8c3d01507e92ceb9e2c2b5175790c9153c1f49260",
+    "robot_receiver_validation.py": "e9ff3af26ab4fdf55501fd7831f012c17df03aeceff19953e54afaae38113587",
+    "test_contract.py": "0bd86eadde4cb1de88304311a2f0bf035ab9848c6db343611655cdb183dcf835",
+    "install.py": "52cf4fdbd1ac2fd0c98661c58cfeefe981c873d6a244539672406f27bf2211a8",
+    "validate_isolated.py": "edb7007ea9478b885cfc82d2e639448533a3eefb7b3efd8a30211293bbe869ee",
+    "contract.py": "e0e47ea126b420a9be1a67b276cc2844f275210272fbe9eb5203043b4809acf4"
+  }
+}
